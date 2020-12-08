@@ -1,0 +1,16 @@
+build/*.js
+src/assets/js/*.js
+src/assets/js/common/jsmind/js/*.js
+public
+dist
+home.rar
+home/*
+src/index2/
+
+# 合并的功能不检测
+src/views/form/*.vue
+src/views/form/*.js
+src/components/clinicForm/*.js
+src/components/clinicForm/*.vue
+src/views/form/formManage/*.vue
+src/views/form/formManage/*.js
