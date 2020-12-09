@@ -1,7 +1,7 @@
 <template>
   <el-container class="xia-app-container">
     <!-- 侧边栏开始 -->
-    <el-aside width="200px">
+    <el-aside :width="!collapsed?'200px':'auto'">
       <div class="logo ellipsis">
         {{ globalConfigs.site_config.global_site_title }}
       </div>
@@ -60,13 +60,19 @@
     <el-container>
       <!-- 导航头开始 -->
       <el-header height="50px">
+        <div class="fl center" style="height:100%">
+          <el-button class="fl" style="padding:4px;" :icon="!collapsed?'el-icon-s-fold':'el-icon-s-unfold'" size="mini" plain @click="collapsed=!collapsed" />
+        </div>
         <Breadcrumb />
         <div class="user-wrap fr">
-          <i class="user-icon fas fa-user-circle" />
+          <!-- <i class="user-icon fas fa-user-circle" /> -->
           <el-dropdown v-if="userInfo.truename" @command="commandHandle">
             <span class="el-dropdown-link">
-              {{ userInfo.truename }}
-              <i class="el-icon-arrow-down el-icon--right" />
+            <svg-icon icon-class="user-icon" class="user-icon" />
+              <span v-show="!isMobile">
+                {{ userInfo.truename }}
+                <i class="el-icon-arrow-down el-icon--right" />
+              </span>
             </span>
             <template #dropdown>
               <el-dropdown-menu>
@@ -94,6 +100,7 @@
         </router-view>
       </el-main>
     </el-container>
+    <Logout ref="Logout" />
   </el-container>
 </template>
 <script>
@@ -106,50 +113,16 @@ import { getCode } from '@/utils/common'
 import { getInfo } from '@/utils/cookie'
 import Logout from './logout'
 // import { reactive, computed, ref, watchEffect, watch } from 'vue'
-import{ ElAlert }from 'element-plus'
-import {computed, ref } from 'vue'
+import { computed, ref,onMounted } from 'vue'
 function handleSelect(i, path) {
   console.log(i, path)
   // 切换导航清空条件
   router.push({ path: i })
 }
-// 头像下拉命令
-function commandHandle(v) {
-  if (v === 2) {
-    logoutHandle()
-  } else if(v === 3) {
-    Logout.init()
-  }else {
-    router.push('/profile')
-  }
-}
-    // 退出登录
-function logoutHandle() {
-    store.dispatch('user/logout').then(() => {
-      this.$alert('确认退出', '提示', {
-        confirmButtonText: '确认',
-        showCancelButton: false,
-        showClose: false,
-        callback: () => {
-          logoutRedirectControl()
-        }
-      })
-    })
-}
-// 退出跳转控制
-function logoutRedirectControl() {
-  const code = getCode()
-  switch (code) {
-    case 'gyfy_117' :
-      break
-    default:
-      location.reload()
-      break
-  }
-}
 export default {
   components: {
-    Breadcrumb
+    Breadcrumb,
+    Logout
   },
   setup() {
     const store = useStore()
@@ -167,8 +140,26 @@ export default {
       console.log(getInfo())
       return getInfo()
     })
+    const isMobile = computed(() => {
+      return mobileCallBack()
+    })
+    // methods
+    const mobileCallBack = ()=>{
+        const width = window.innerWidth
+        if(width<900){
+          collapsed.value = true
+        }else{
+          collapsed.value = false
+        }
+        return  width<900
+      }
     /* state */
     const collapsed = ref(false)
+    onMounted(()=>{
+      // 自动收起和展开导航栏
+      mobileCallBack()
+      window.addEventListener('resize',mobileCallBack)
+    })
     return {
       permission_routes: store.getters.permission_routes.filter(v => !v.hidden),
       userInfo: userInfo,
@@ -176,11 +167,45 @@ export default {
       defaultActive,
       collapsed,
       handleSelect,
-      commandHandle,
-      key
+      key,
+      isMobile
     }
   },
-  methods:{
+  methods: {
+    // 头像下拉命令
+    commandHandle(v) {
+      if (v === 2) {
+        this.logoutHandle()
+      } else if (v === 3) {
+        this.$refs.Logout.init()
+      } else {
+        router.push('/profile')
+      }
+    },
+    // 退出登录
+    logoutHandle() {
+      store.dispatch('user/logout').then(() => {
+        this.$alert('确认退出', '提示', {
+          confirmButtonText: '确认',
+          showCancelButton: false,
+          showClose: false,
+          callback: () => {
+            this.logoutRedirectControl()
+          }
+        })
+      })
+    },
+    // 退出跳转控制
+    logoutRedirectControl() {
+      const code = getCode()
+      switch (code) {
+        case 'gyfy_117' :
+          break
+        default:
+          location.reload()
+          break
+      }
+    }
   }
 }
 </script>
@@ -195,15 +220,16 @@ export default {
   .el-header{
     background-color: #fff;
     margin-bottom: 2px;
+    padding: 0 0.7rem;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   }
   .el-main{
-
+    padding: 0;
   }
   .el-menu-vertical{
     border-right: solid 1px #343837;
    .el-menu-item{
-      background-color: #343837 !important;
+      // background-color: #343837 !important;
       font-size: 16px;
       // height: 60px;
       // line-height: 60px;
@@ -222,13 +248,18 @@ export default {
     }
     .el-menu-item:hover{
       background-color: #03719C !important;
+      // color:$nav-active-color;
     }
     .el-menu-item.is-active{
       background-color: #03719C !important;
+      // color:$nav-active-color;
       font-size: 18px;
       &::after{
         display: block;
       }
+    }
+    .submenu-item{
+      background-color: #2a2d2c !important;
     }
    .el-submenu__title{
       font-size: 16px;

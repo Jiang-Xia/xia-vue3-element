@@ -1,5 +1,5 @@
 <template>
-  <div class="charts-container">
+  <div class="charts-container clearfix">
     <div class="fl chart-wrap">
       <Line />
     </div>
@@ -30,9 +30,10 @@ export default {
 </script>
 <style scoped lang="scss">
 .charts-container{
-  height: 100%;
-  overflow: auto;
-  padding: 0.25rem;
+  // height: 100%;
+  // overflow: auto;
+  background-color: #fff;
+  padding: 1rem 0.25rem;
   .chart-wrap{
     margin-bottom: 0.5rem;
     height: 25rem;

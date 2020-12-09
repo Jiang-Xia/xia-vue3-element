@@ -1,5 +1,5 @@
 <template>
-  <div class="disease-container">
+  <div class="icons-container">
     <svg-icon icon-class="approval-config" />
   </div>
 </template>

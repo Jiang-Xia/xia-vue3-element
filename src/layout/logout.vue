@@ -42,7 +42,7 @@
   </el-dialog>
 </template>
 <script>
-import * as request from '@/api/profile'
+// import * as request from '@/api/profile'
 import { removeToken, removeInfo } from '@/utils/cookie'
 export default {
   data() {
@@ -102,19 +102,18 @@ export default {
     toRuleForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          const obj = {
-            old_password: this.ruleForm.oldPass,
-            new_password: this.ruleForm.pass
-          }
-          request.editPassword(obj).then(() => {
+          // const obj = {
+          //   old_password: this.ruleForm.oldPass,
+          //   new_password: this.ruleForm.pass
+          // }
+          // request.editPassword(obj).then(() => {})
+          setTimeout(() => {
             this.$message.success('修改密码成功，请重新登录！')
             removeToken()
             removeInfo()
-            setTimeout(() => {
-              this.closeHandle()
-              this.$router.push('/login')
-            }, 1000)
-          })
+            this.closeHandle()
+            this.$router.push('/login')
+          }, 1000)
         } else {
           return false
         }

@@ -9,8 +9,8 @@
     if (clientWidth !== designSize) {
       rem = Math.floor((clientWidth / designSize) * baseFontSize)
     }
-    if (rem <= 14) {
-      rem = 14
+    if (rem <= 10) {
+      rem = 10
     } else if (rem >= 20) {
       rem = 20
     }

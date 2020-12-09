@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Dashboard from '@/router/modules/dashboard'
 import Charts from '@/router/modules/charts'
 import Icon from '@/router/modules/icon'
+import Nav from '@/router/modules/nav'
 import Profile from '@/router/modules/profile'
 // 固定路由
 export const constantRoutes = [
@@ -35,6 +36,7 @@ export const constantRoutes = [
 // 异步路由根据权限配置
 export const asyncRoutes = [
   Dashboard,
+  Nav,
   Charts,
   Icon,
   Profile,

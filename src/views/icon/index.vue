@@ -1,5 +1,5 @@
 <template>
-  <div class="disease-container">
+  <div class="icons-container">
     <!-- emoji -->
     <section class="section-container">
       <svg-icon icon-class="approval-config" />
@@ -35,8 +35,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.disease-container{
-  overflow: auto;
+.icons-container{
   .section-container{
 
   }

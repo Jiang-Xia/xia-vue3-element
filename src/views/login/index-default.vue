@@ -50,7 +50,7 @@ export default {
 .login-default-container{
   height: 100%;
   width: 100%;
-  background: url("~@/assets/img/background/abstract.jpg") no-repeat; 
+  background: url("~@/assets/img/background/abstract.jpg") no-repeat;
   background-size: 100% 100%;
   .el-input{
     width: 80%;
@@ -76,7 +76,7 @@ export default {
 
   .login-content {
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     height: 100%;
     z-index: 1;
@@ -84,12 +84,13 @@ export default {
       position: relative;
       background-color: #fff;
       border-radius: .8rem;
+      box-shadow: 0 2px 15px rgba($color: #000000, $alpha: 0.3);
       width: 27rem;
       height: 21rem;
       max-width: 460px;
       max-height: 340px;
       padding: 2rem 2rem 0 2rem;
-      margin-left: 8rem;
+      margin: 2rem 8rem 2rem 2rem;
       margin-bottom: 4rem;
       overflow: hidden;
       .loginbutton {
