@@ -25,7 +25,7 @@ const loginMixins = {
             this.$store.dispatch('user/login', this.loginForm).then(async res => {
               if (res) {
               // 重定向或者首页
-                this.$message.success({ content: '登录成功即将为您跳转' })
+                this.$message.success('登录成功即将为您跳转')
                 this.token = this.$getToken()
                 this.loginVisible = false
                 setTimeout(() => {

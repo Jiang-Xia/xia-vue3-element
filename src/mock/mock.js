@@ -1,14 +1,5 @@
 import Mock from 'mockjs'
-// 当前用户信息
-const userInfo = {
-  last_login_time: '',
-  status: 1,
-  truename: '',
-  uid: 13,
-  user_type: 1,
-  username: ''
-}
-
+import storage from '@/utils/storage'
 // 全局配置
 export const globalConfigs = function() {
   const data = {
@@ -27,28 +18,52 @@ export const globalConfigs = function() {
       'patient_detail_open_at_dialog': true
     }
   }
-  return data
+  return {
+    data:data,
+    msg:'获取全局配置成功',
+    code:'00000'
+  }
 }
 // 获取token
 export const makeToken = function(data) {
   const body = JSON.parse(data.body)
-  userInfo.truename = body.username
-  userInfo.username = body.username
+  // 当前用户信息
+  const userInfo={
+    last_login_time: '',
+    status: 1,
+    truename: body.username,
+    uid: 13,
+    user_type: 1,
+    username: body.username
+  }
+  storage.local.set('userInfo',userInfo)
   const res = {
     access_token: '123',
     expires_in: 42899,
     token_type: 'Bearer'
   }
-  return res
+  return {
+    data:res,
+    msg:'登录成功',
+    code:'00000'
+  }
 }
 // 退出
 export const destoryToken = function() {
-  return true
+  return {
+    data:true,
+    msg:'销毁成功',
+    code:'00000'
+  }
 }
 // 用户信息
 export const tokenProfile = function() {
-  const data = userInfo
-  return data
+  const data = storage.local.get('userInfo')
+  return {
+    data:data,
+    msg:'获取用户信息成功',
+    code:'00000'
+  }
 }
 export // 获取 mock.Random 对象
 const Random = Mock.Random
@@ -63,5 +78,9 @@ export const produceNewsData = function() {
     }
     newsList.push(newNewsObject)
   }
-  return newsList
+  return {
+    data:newsList,
+    msg:'列表信息成功',
+    code:'00000'
+  }
 }

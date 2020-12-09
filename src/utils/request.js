@@ -4,10 +4,10 @@ import { getToken, removeToken, removeInfo } from '@/utils/cookie'
 // import { getCode } from '@/utils/common'
 // import showXiaLogin from '@/components/xia-login/main'
 
-import { Message } from 'element-plus'
+import { ElMessage } from 'element-plus'
 
 function errorMsg(msg) {
-  Message.error({
+  ElMessage.error({
     content: msg,
     duration: 1500
   })

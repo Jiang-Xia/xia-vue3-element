@@ -38,6 +38,13 @@ import BreadCrumb from '@/components/breadcrumb'
 app.component('SvgIcon', SvgIcon)
 app.component('BreadCrumb', BreadCrumb)
 
+
+// import localforage from 'localforage/dist/localforage.js'
+// // 患者详情缓存数据库
+// const xiaSystemDataDb = localforage.createInstance({
+//   name: 'xiaSystemDataDb',
+//   storeName: `xiaSystemDataDbStore`
+// })
 /*
   常用方法挂载
 */
@@ -51,6 +58,5 @@ globalProperties.devtools = false
 globalProperties.$getToken = getToken
 globalProperties.$axios = axios
 globalProperties.log = console.log
-
 export default app
 

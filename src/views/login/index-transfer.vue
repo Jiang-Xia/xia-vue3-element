@@ -36,7 +36,7 @@ export default {
   },
   created() {
     this.$store.dispatch('user/getGlobalConfigs').then(() => {
-      const code = this.$store.getters.hospCode
+      const code = this.$getCode()
       this.code = code
       const obj = {
         demo_000: this.defaultLoginHandle

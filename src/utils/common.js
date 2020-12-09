@@ -7,8 +7,8 @@ import storage from '@/utils/storage'
 // 获取医院代号
 export const getCode = function() {
   try {
-    const global_config = storage.local.get('global_config')
-    const hosp_config = global_config && global_config.hosp_config
+    // const global_config = storage.local.get('global_config')
+    // const hosp_config = global_config && global_config.hosp_config
     // const code = (hosp_config && hosp_config.global_hospital_code) || ''
     // return code
     // return 'demo_000'

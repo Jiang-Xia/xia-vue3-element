@@ -61,6 +61,23 @@
       <!-- 导航头开始 -->
       <el-header height="50px">
         <Breadcrumb />
+        <div class="user-wrap fr">
+          <i class="user-icon fas fa-user-circle" />
+          <el-dropdown v-if="userInfo.truename" @command="commandHandle">
+            <span class="el-dropdown-link">
+              {{ userInfo.truename }}
+              <i class="el-icon-arrow-down el-icon--right" />
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item :command="1">个人中心</el-dropdown-item>
+                <el-dropdown-item :command="3">修改密码</el-dropdown-item>
+                <el-dropdown-item :command="2">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <span v-else class="login" @click="loginHandle">请登录</span>
+        </div>
       </el-header>
       <!-- 导航头结束 -->
 
@@ -86,7 +103,11 @@ import { useRoute } from 'vue-router'
 import router from '@/router'
 import store from '@/store'
 import { getCode } from '@/utils/common'
-import { reactive, computed, ref, watchEffect, watch } from 'vue'
+import { getInfo } from '@/utils/cookie'
+import Logout from './logout'
+// import { reactive, computed, ref, watchEffect, watch } from 'vue'
+import{ ElAlert }from 'element-plus'
+import {computed, ref } from 'vue'
 function handleSelect(i, path) {
   console.log(i, path)
   // 切换导航清空条件
@@ -96,22 +117,24 @@ function handleSelect(i, path) {
 function commandHandle(v) {
   if (v === 2) {
     logoutHandle()
-  } else {
+  } else if(v === 3) {
+    Logout.init()
+  }else {
     router.push('/profile')
   }
 }
-// 退出登录
+    // 退出登录
 function logoutHandle() {
-  store.dispatch('user/logout').then(() => {
-    this.$alert('确认退出', '提示', {
-      confirmButtonText: '确认',
-      showCancelButton: false,
-      showClose: false,
-      callback: action => {
-        this.logoutRedirectControl()
-      }
+    store.dispatch('user/logout').then(() => {
+      this.$alert('确认退出', '提示', {
+        confirmButtonText: '确认',
+        showCancelButton: false,
+        showClose: false,
+        callback: () => {
+          logoutRedirectControl()
+        }
+      })
     })
-  })
 }
 // 退出跳转控制
 function logoutRedirectControl() {
@@ -140,11 +163,15 @@ export default {
     const key = computed(() => {
       return route.path
     })
+    const userInfo = computed(() => {
+      console.log(getInfo())
+      return getInfo()
+    })
     /* state */
     const collapsed = ref(false)
     return {
       permission_routes: store.getters.permission_routes.filter(v => !v.hidden),
-      userInfo: store.getters.userInfo,
+      userInfo: userInfo,
       globalConfigs: store.getters.globalConfigs,
       defaultActive,
       collapsed,
@@ -152,6 +179,8 @@ export default {
       commandHandle,
       key
     }
+  },
+  methods:{
   }
 }
 </script>
@@ -224,10 +253,26 @@ export default {
     // color: #03719C;
   }
   .user-wrap{
-    height: 100%;
-    float: right;
-    padding-right: 24px;
-    // border-bottom: 1px solid #303133;
-  }
+      height: 100%;
+      // line-height: 50px;
+      padding-right: 1rem;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: $main-text-color;
+      font-size: 14px;
+      .user-icon{
+        color: #909399;
+        margin: 0 10px;
+        font-size: 24px;
+      }
+      .login:hover{
+        color: $main-color;
+      }
+      .login{
+        cursor: pointer;
+      }
+   }
 }
 </style>

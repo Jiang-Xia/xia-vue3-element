@@ -8,12 +8,17 @@ import * as mockData from './mock'
  * @param code {number} 请求状态值
  * @param msg {Sting} 请求状态消息
 */
-function formattingData(data, code = '00000', msg) {
-  return {
+function formattingData(data) {
+  let obj = {
     data: data,
-    code: code,
-    msg: msg || (code === '00000' ? '请求成功' : '请求失败')
+    code: data.code,
+    msg: (data.code === '00000' ? '请求成功' : '请求失败')
   }
+  obj = {...obj,...data}
+  console.log('===========================')
+  console.log(obj)
+  console.log('===========================')
+  return obj
 }
 
 Mock.mock('/api/v2/user_config/global_configs', (ops) => formattingData(mockData.globalConfigs(ops)))
