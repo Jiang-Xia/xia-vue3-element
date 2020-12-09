@@ -12,12 +12,12 @@
 * 中转页面
 *
 */
-import DefaultComponent from './index-dialog'
-import SzeyComponent from './index-szey'
+import DialogLogin from './index-dialog'
+import PageLogin from './index-default'
 export default {
   components: {
-    DefaultComponent,
-    SzeyComponent
+    DialogLogin,
+    PageLogin
   },
   data() {
     return {
@@ -28,8 +28,8 @@ export default {
     currentComponent() {
       const code = this.code
       const obj = {
-        demo_000: 'DefaultComponent',
-        szey_115: 'SzeyComponent'
+        demo_000: 'DialogLogin',
+        demo_111: 'PageLogin'
       }
       return obj[code]
     }
@@ -39,9 +39,7 @@ export default {
       const code = this.$store.getters.hospCode
       this.code = code
       const obj = {
-        demo_000: this.defaultLoginHandle,
-        gyfy_117: this.gyfyLoginHandle,
-        szey_115: this.szeyLoginHandle
+        demo_000: this.defaultLoginHandle
       }
       obj[code] && obj[code]()
     })
@@ -50,27 +48,6 @@ export default {
     defaultLoginHandle() {
     },
     szeyLoginHandle() {
-    },
-    gyfyLoginHandle() {
-      const service_url = location.protocol + '//' + location.host + location.pathname + 'login'
-      const obj = {
-        ticket: this.$route.query.ticket,
-        service_url: service_url, // 密码
-        grant_type: 'gyfy_ticket' // 授权形式
-      }
-      this.$store.dispatch('user/login', obj).then(async res => {
-        if (res) {
-        // 重定向或者首页
-          this.$message.success('登录成功')
-          this.$router.push('/dashboard')
-        } else {
-          this.$message.error('登录失败')
-          location.href = 'https://www.elungcare.com/sso/logout'
-        }
-      }).catch(err => {
-        location.href = 'https://www.elungcare.com/sso/logout'
-        return err
-      })
     }
   }
 }

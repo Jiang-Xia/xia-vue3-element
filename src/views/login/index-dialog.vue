@@ -1,7 +1,7 @@
 <template>
   <el-dialog
-    title="登录"
     v-model="loginVisible"
+    title="登录"
     :close-on-click-modal="false"
     custom-class="xia-dialog-login"
     width="400px"
@@ -12,7 +12,6 @@
       :model="loginForm"
       :rules="loginrules"
       class="loginForm"
-      
     >
       <el-form-item prop="username" class="me-item">
         <div class="xia-item">
@@ -39,13 +38,13 @@
       </el-form-item>
     </el-form>
     <template #footer>
-    <span class="dialog-footer">
-      <el-button
-        type="primary"
-        @click="tologinForm('loginForm')"
-      >登 录</el-button>
-    </span>
-  </template>
+      <span class="dialog-footer">
+        <el-button
+          type="primary"
+          @click="tologinForm('loginForm')"
+        >登 录</el-button>
+      </span>
+    </template>
   </el-dialog>
 </template>
 <script>

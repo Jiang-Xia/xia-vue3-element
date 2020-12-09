@@ -9,9 +9,10 @@ export const getCode = function() {
   try {
     const global_config = storage.local.get('global_config')
     const hosp_config = global_config && global_config.hosp_config
-    const code = (hosp_config && hosp_config.global_hospital_code) || ''
-    return code
-    // return 'szey_115'
+    // const code = (hosp_config && hosp_config.global_hospital_code) || ''
+    // return code
+    // return 'demo_000'
+    return 'demo_111'
     // return 'gyfy_117'
     // return 'fdzsy_113'
   } catch (error) {

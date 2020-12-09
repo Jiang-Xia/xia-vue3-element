@@ -56,11 +56,11 @@
         </el-menu>
       </el-scrollbar>
     </el-aside>
-<!-- 侧边栏结束 -->
+    <!-- 侧边栏结束 -->
     <el-container>
       <!-- 导航头开始 -->
       <el-header height="50px">
-        <Breadcrumb/>
+        <Breadcrumb />
       </el-header>
       <!-- 导航头结束 -->
 
@@ -87,10 +87,10 @@ import router from '@/router'
 import store from '@/store'
 import { getCode } from '@/utils/common'
 import { reactive, computed, ref, watchEffect, watch } from 'vue'
-function handleSelect( i, path) {
-  console.log( i, path)
+function handleSelect(i, path) {
+  console.log(i, path)
   // 切换导航清空条件
-  router.push({ path: i})
+  router.push({ path: i })
 }
 // 头像下拉命令
 function commandHandle(v) {
@@ -103,12 +103,12 @@ function commandHandle(v) {
 // 退出登录
 function logoutHandle() {
   store.dispatch('user/logout').then(() => {
-    Modal.confirm({
-      title: '退出',
-      content: '退出成功',
-      okText: '确认',
-      onOk: () => {
-        logoutRedirectControl()
+    this.$alert('确认退出', '提示', {
+      confirmButtonText: '确认',
+      showCancelButton: false,
+      showClose: false,
+      callback: action => {
+        this.logoutRedirectControl()
       }
     })
   })

@@ -4,7 +4,7 @@ import store from '@/store'
 import { getToken } from '@/utils/cookie' // get token from cookie
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-import { getPageTitle, getOpenType } from '@/utils/common'
+import { getPageTitle } from '@/utils/common'
 
 const whiteList = ['/login', '/index', '/404']
 router.beforeEach(async(to, from, next) => {
