@@ -1,11 +1,11 @@
 <template>
   <div class="navs-container">
-    <el-row :gutter="20">
-    <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
-    <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
-    <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
-    <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
-  </el-row>
+    <el-row :gutter="10">
+      <el-col :xs="12" :sm="12" :lg="6"><div class="grid-content bg-purple" /></el-col>
+      <el-col :xs="12" :sm="12" :lg="6"><div class="grid-content bg-purple-light" /></el-col>
+      <el-col :xs="12" :sm="12" :lg="6"><div class="grid-content bg-purple" /></el-col>
+      <el-col :xs="12" :sm="12" :lg="6"><div class="grid-content bg-purple-light" /></el-col>
+    </el-row>
   </div>
 </template>
 

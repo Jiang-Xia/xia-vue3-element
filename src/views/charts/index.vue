@@ -1,17 +1,27 @@
 <template>
   <div class="charts-container clearfix">
-    <div class="fl chart-wrap">
-      <Line />
-    </div>
-    <div class="fl chart-wrap">
-      <Water />
-    </div>
-    <div class="fl chart-wrap">
-      <Bar />
-    </div>
-    <div class="fl chart-wrap">
-      <Radar />
-    </div>
+    <el-row :gutter="10">
+      <el-col :xs="24" :sm="24" :lg="12">
+        <div class="fl chart-wrap">
+          <Line />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="12">
+        <div class="fl chart-wrap">
+          <Water />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="12">
+        <div class="fl chart-wrap">
+          <Bar />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="12">
+        <div class="fl chart-wrap">
+          <Radar />
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -33,16 +43,13 @@ export default {
   // height: 100%;
   // overflow: auto;
   background-color: #fff;
-  padding: 1rem 0.25rem;
+  padding: 0.5rem;
   .chart-wrap{
     margin-bottom: 0.5rem;
     height: 25rem;
-    width: 49%;
+    width: 100%;
     background-color: #fff;
     box-shadow: 0 0px 12px 0 rgba(0,0,0,.15);
-  }
-  &>:nth-child(2n-1){
-    margin-right: 1%;
   }
 }
 </style>

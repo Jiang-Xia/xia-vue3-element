@@ -68,7 +68,7 @@
           <!-- <i class="user-icon fas fa-user-circle" /> -->
           <el-dropdown v-if="userInfo.truename" @command="commandHandle">
             <span class="el-dropdown-link">
-            <svg-icon icon-class="user-icon" class="user-icon" />
+              <svg-icon icon-class="user-icon" class="user-icon" />
               <span v-show="!isMobile">
                 {{ userInfo.truename }}
                 <i class="el-icon-arrow-down el-icon--right" />
@@ -113,7 +113,7 @@ import { getCode } from '@/utils/common'
 import { getInfo } from '@/utils/cookie'
 import Logout from './logout'
 // import { reactive, computed, ref, watchEffect, watch } from 'vue'
-import { computed, ref,onMounted } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 function handleSelect(i, path) {
   console.log(i, path)
   // 切换导航清空条件
@@ -144,21 +144,21 @@ export default {
       return mobileCallBack()
     })
     // methods
-    const mobileCallBack = ()=>{
-        const width = window.innerWidth
-        if(width<900){
-          collapsed.value = true
-        }else{
-          collapsed.value = false
-        }
-        return  width<900
+    const mobileCallBack = () => {
+      const width = window.innerWidth
+      if (width < 900) {
+        collapsed.value = true
+      } else {
+        collapsed.value = false
       }
+      return width < 900
+    }
     /* state */
     const collapsed = ref(false)
-    onMounted(()=>{
+    onMounted(() => {
       // 自动收起和展开导航栏
       mobileCallBack()
-      window.addEventListener('resize',mobileCallBack)
+      window.addEventListener('resize', mobileCallBack)
     })
     return {
       permission_routes: store.getters.permission_routes.filter(v => !v.hidden),

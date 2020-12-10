@@ -53,7 +53,7 @@ export default {
   background: url("~@/assets/img/background/abstract.jpg") no-repeat;
   background-size: 100% 100%;
   .el-input{
-    width: 80%;
+    width: 90%;
     line-height: 40px;
   }
   .el-form-item__content{
@@ -85,8 +85,8 @@ export default {
       background-color: #fff;
       border-radius: .8rem;
       box-shadow: 0 2px 15px rgba($color: #000000, $alpha: 0.3);
-      width: 27rem;
-      height: 21rem;
+      width: 29rem;
+      height: 23rem;
       max-width: 460px;
       max-height: 340px;
       padding: 2rem 2rem 0 2rem;
@@ -103,6 +103,15 @@ export default {
         cursor: pointer;
         color: #fff;
         font-size: 1.2rem;
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .login-content{
+      width: 100%;
+      .loginForm {
+        margin: 2rem;
+        padding: 2rem;
       }
     }
   }
