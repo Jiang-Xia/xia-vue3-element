@@ -84,6 +84,9 @@
           </el-dropdown>
           <span v-else class="login" @click="loginHandle">请登录</span>
         </div>
+        <div style="height:100%" class="center fr pointer" @click="requestFullscreenHandle">
+          <span class="fas fa-expand-arrows-alt" />
+        </div>
       </el-header>
       <!-- 导航头结束 -->
 
@@ -118,6 +121,14 @@ function handleSelect(i, path) {
   console.log(i, path)
   // 切换导航清空条件
   router.push({ path: i })
+}
+// 请求全屏
+function requestFullscreenHandle() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen()
+  } else {
+    document.documentElement.requestFullscreen()
+  }
 }
 export default {
   components: {
@@ -168,7 +179,8 @@ export default {
       collapsed,
       handleSelect,
       key,
-      isMobile
+      isMobile,
+      requestFullscreenHandle
     }
   },
   methods: {

@@ -27,7 +27,7 @@
         <el-form-item>
           <el-button
             class="loginbutton"
-            type="primary"
+            :type="loginForm.username&&loginForm.password?'primary':'info'"
             @click="tologinForm('loginForm')"
           >
             登录
@@ -96,12 +96,10 @@ export default {
       .loginbutton {
         width: 70%;
         border-radius: 1px;
-        background:$main-color;
         border-radius: 0.5rem;
         margin-left: 1.6rem;
         margin-top: .5rem;
         cursor: pointer;
-        color: #fff;
         font-size: 1.2rem;
       }
     }
