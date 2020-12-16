@@ -12,10 +12,18 @@ const Form = {
   children: [
     {
       path: 'index',
-      component: () => import('@/views/form/index'),
+      component: () => import('@/views/form/drag-control'),
       meta: {
-        activeMenu: '/form',
+        activeMenu: '/form/index',
         title: '表单生成器'
+      }
+    },
+    {
+      path: 'question',
+      component: () => import('@/views/form/question-type'),
+      meta: {
+        activeMenu: '/form/question',
+        title: '题型生成器'
       }
     }
   ]
