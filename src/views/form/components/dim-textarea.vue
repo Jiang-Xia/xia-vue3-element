@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>{{ dimData.topic }}</div>
+    <div>{{ dimData.name }}</div>
     <div>
       <el-input v-model="textarea" type="textarea" size="small" />
     </div>
@@ -35,13 +35,12 @@ export default {
     },
     clickHandle(v) {
       v = this.getRealValue(v)
-      if (!this.isEditing) return
-      const en = this.dimLayout.dim_en
+      
       this.textarea = v === this.textarea ? '' : v
       // console.log(this.dimData.value, '!!!!!!!!!!', v)
       this.$emit('modify', {
         type: 'textarea',
-        en: en,
+        en: 'en',
         value: this.textarea,
         dim_type: 1
       })

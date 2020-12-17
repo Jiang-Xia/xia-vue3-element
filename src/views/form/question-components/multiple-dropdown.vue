@@ -1,17 +1,19 @@
 <template>
   <div>
     <div>{{ dimData.name }}</div>
-    <el-radio-group
-      v-model="radio"
-      class="me-radio-group"
+    <el-select
+      v-model="select"
+      size="small"
+      multiple
+      collapse-tags
     >
-      <el-radio
+      <el-option
         v-for="(item,index) in dimData.options"
         :key="index"
-        :label="getRealValue(item.value)"
-        @click.native.prevent="clickHandle(item.value)"
-      >{{ item.text_show }}</el-radio>
-    </el-radio-group>
+        :value="item.value"
+        :label="item.text_show"
+      />
+    </el-select>
   </div>
 </template>
 
@@ -25,16 +27,16 @@ export default {
   },
   data() {
     return {
-      radio: ''
+      select: []
     }
   },
   watch: {
     dimData(n) {
-      this.radio = n.value
+      this.select = n.value
     }
   },
   created() {
-    this.radio = this.dimData.value
+    this.select = this.dimData.value
     // console.log()
   },
   methods: {
@@ -43,12 +45,13 @@ export default {
     },
     clickHandle(v) {
       v = this.getRealValue(v)
-      this.radio = v === this.radio ? '' : v
+
+      this.select = v === this.select ? '' : v
       // console.log(this.dimData.value, '!!!!!!!!!!', v)
       this.$emit('modify', {
-        type: 'radio',
+        type: 'select',
         en: 'en',
-        value: this.radio,
+        value: this.select,
         dim_type: 1
       })
     }
@@ -56,6 +59,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.dim-radio{
+.dim-select{
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div class="new-temp-container">
     <div class="temp-item">
-      题目：<el-input v-model="addData.topic" size="small" />
+      题目：<el-input v-model="addData.name" size="small" />
     </div>
     <div class="temp-item">
       备注：<el-input v-model="addData.mark" size="small" />
     </div>
     <!-- 选择题 -->
-    <section v-if="['radio','select','checkbox'].includes(addData.type)">
+    <section v-if="['multiple_choice','multiple_dropdown','single_choice','single_dropdown'].includes(addData.type)">
       <el-input
         v-for="item in addData.options"
         :key="item.text_show"
@@ -39,11 +39,11 @@ export default {
     }
   },
   created() {
-    console.log(this.addData)
   },
   methods: {
     confirm() {
-      if (!this.addData.topic) {
+      // console.log(this.addData)
+      if (!this.addData.name) {
         this.$message.warning('请先填写题目名称！')
         return
       }

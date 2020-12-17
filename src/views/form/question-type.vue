@@ -82,29 +82,37 @@
 <script>
 import draggable from 'vuedraggable'
 import addQuestion from './new-temp'
-import DimModel from './components/dim-model'
+import DimModel from './question-components/question-model'
 import { ref, reactive } from 'vue'
 // const idGlobal = 4
 const controlList = [
-  { name: '单选题',
-    type: 'radio',
-    id: 4
-  },
-  { name: '多选题',
-    type: 'checkbox',
-    id: 3
-  },
-  { name: '下拉题',
-    type: 'select',
-    id: 3
-  },
-  { name: '短文本',
-    type: 'input',
+  { name: '长文本',
+    type: 'long_text',
     id: 1
   },
-  { name: '长文本',
-    type: 'textarea',
+  { name: '短文本',
+    type: 'short_text',
     id: 2
+  },
+  { name: '多项选择',
+    type: 'multiple_choice',
+    id: 3
+  },
+  { name: '下拉多选',
+    type: 'multiple_dropdown',
+    id: 4
+  },
+  { name: '单选选择',
+    type: 'single_choice',
+    id: 5
+  },
+  { name: '下拉单选',
+    type: 'single_dropdown',
+    id: 6
+  },
+  { name: '文本描述',
+    type: 'desp',
+    id: 7
   }
 ]
 // taget layout
@@ -146,7 +154,7 @@ export default {
         value: '',
         isAdd: true
       }
-      if (['radio', 'select', 'checkbox'].includes(item.type)) {
+      if (['multiple_choice', 'multiple_dropdown', 'single_choice', 'single_dropdown'].includes(item.type)) {
         defaultObj.options = [
           {
             value: 1,
@@ -158,7 +166,7 @@ export default {
           }
         ]
       }
-      if (['checkbox'].includes(item.type)) {
+      if (['multiple_choice', 'multiple_dropdown'].includes(item.type)) {
         defaultObj.value = []
       }
       const obj = { ...item, ...defaultObj }
@@ -168,16 +176,15 @@ export default {
       this.isAdding = true
     },
     clickControlItemHandle(element) {
-      console.log(this.isAdding)
-      if (this.isAdding) {
-        this.$forceUpdate()
-        return
-      } else {
-        this.curControlItemId = element.id
-        this.curControlData = element
-        this.isAdding = true
-        this.$forceUpdate()
-      }
+      // if (this.isAdding) {
+      //   this.$forceUpdate()
+      //   return
+      // } else {
+      //   this.curControlItemId = element.id
+      //   this.curControlData = element
+      //   this.isAdding = true
+      //   this.$forceUpdate()
+      // }
     },
     layoutChangeHandle(e) {
       if (e.added && e.added.element) {

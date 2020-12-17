@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>{{ dimData.topic }}</div>
+    <div>{{ dimData.name }}</div>
     <el-select
       v-model="select"
       size="small"
@@ -43,13 +43,12 @@ export default {
     },
     clickHandle(v) {
       v = this.getRealValue(v)
-      if (!this.isEditing) return
-      const en = this.dimLayout.dim_en
+      
       this.select = v === this.select ? '' : v
       // console.log(this.dimData.value, '!!!!!!!!!!', v)
       this.$emit('modify', {
         type: 'select',
-        en: en,
+        en: 'en',
         value: this.select,
         dim_type: 1
       })
