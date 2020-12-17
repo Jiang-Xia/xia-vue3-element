@@ -1,19 +1,22 @@
 <template>
-  <div>
-    <div>{{ dimData.name }}</div>
-    <el-select
-      v-model="select"
-      size="small"
-      multiple
-      collapse-tags
-    >
-      <el-option
-        v-for="(item,index) in dimData.options"
-        :key="index"
-        :value="item.value"
-        :label="item.text_show"
-      />
-    </el-select>
+  <div class="question-wrap multiple-dropdown-wrap">
+    <h6 class="question-heading">{{ dimLayout.name }}</h6>
+    <div class="control-wrap">
+      <el-select
+
+        v-model="select"
+        size="small"
+        multiple
+        collapse-tags
+      >
+        <el-option
+          v-for="(item,index) in dimLayout.options"
+          :key="index"
+          :value="item.option_value"
+          :label="item.option_name"
+        />
+      </el-select>
+    </div>
   </div>
 </template>
 
@@ -21,6 +24,10 @@
 export default {
   props: {
     dimData: {
+      default: () => {},
+      type: Object
+    },
+    dimLayout: {
       default: () => {},
       type: Object
     }
@@ -32,11 +39,11 @@ export default {
   },
   watch: {
     dimData(n) {
-      this.select = n.value
+      // this.select = n.value
     }
   },
   created() {
-    this.select = this.dimData.value
+    // this.select = this.dimData.value
     // console.log()
   },
   methods: {
@@ -59,6 +66,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.dim-select{
+.multiple-dropdown-wrap{
+  // float: left;
+  // width: 50%;
+  width: 100%;
 }
 </style>

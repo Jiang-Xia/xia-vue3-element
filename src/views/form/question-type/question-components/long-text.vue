@@ -1,21 +1,25 @@
 <template>
-  <div>
-    <div>{{ dimData.name }}</div>
-    <div>
-      <el-input v-model="textarea" type="textarea" size="small" @change="changeHandle" />
+  <div class="question-wrap long-text-wrap" :type="dimLayout.type">
+    <h6 class="question-heading">{{ dimLayout.name }}</h6>
+    <div class="control-wrap">
+      <el-input v-model="textarea" :row="2" type="textarea" size="small" @change="changeHandle" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  inject: ['dimData'],
-  // props: {
-  //   dimData: {
-  //     default: () => {},
-  //     type: Object
-  //   }
-  // },
+  // inject: ['dimData'],
+  props: {
+    dimData: {
+      default: () => {},
+      type: Object
+    },
+    dimLayout: {
+      default: () => {},
+      type: Object
+    }
+  },
   data() {
     return {
       textarea: ''
@@ -54,7 +58,9 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.dim-textarea{
+<style lang="scss">
+.long-text-wrap{
+  // float: left;
+  width: 100%;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div>{{ dimData.name }}</div>
-    <div>
+  <div class="question-wrap short-text-wrap">
+    <h6 class="question-heading">{{ dimLayout.name }}</h6>
+    <div class="control-wrap">
       <el-input v-model="input" size="small" />
     </div>
   </div>
@@ -11,6 +11,10 @@
 export default {
   props: {
     dimData: {
+      default: () => {},
+      type: Object
+    },
+    dimLayout: {
       default: () => {},
       type: Object
     }
@@ -49,6 +53,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.dim-input{
+.short-text-wrap{
+  // float: left;
+  // width: 50%;
+  width: 100%;
 }
 </style>

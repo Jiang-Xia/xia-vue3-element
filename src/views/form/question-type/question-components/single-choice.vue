@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <div>{{ dimData.name }}</div>
-    <el-radio-group
-      v-model="radio"
-      class="me-radio-group"
-    >
-      <el-radio
-        v-for="(item,index) in dimData.options"
-        :key="index"
-        :label="getRealValue(item.value)"
-        @click.native.prevent="clickHandle(item.value)"
-      >{{ item.text_show }}</el-radio>
-    </el-radio-group>
+  <div class="question-wrap single-choice-wrap">
+    <h6 class="question-heading">{{ dimLayout.name }}</h6>
+    <div class="control-wrap">
+      <el-radio-group
+        v-model="radio"
+        class="me-radio-group"
+      >
+        <el-radio
+          v-for="(item,index) in dimLayout.options"
+          :key="index"
+          :label="getRealValue(item.option_value)"
+          @click.native.prevent="clickHandle(item.option_value)"
+        >{{ item.option_name }}</el-radio>
+      </el-radio-group>
+    </div>
   </div>
 </template>
 
@@ -19,6 +21,10 @@
 export default {
   props: {
     dimData: {
+      default: () => {},
+      type: Object
+    },
+    dimLayout: {
       default: () => {},
       type: Object
     }
@@ -56,6 +62,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.dim-radio{
+.single-choice-wrap{
+  width: 100%;
 }
 </style>

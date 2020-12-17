@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>{{ dimData.name }}</div>
+  <div class="question-wrap desp-wrap">
+    <h6 class="question-heading">{{ dimLayout.name }}</h6>
   </div>
 </template>
 
@@ -8,6 +8,10 @@
 export default {
   props: {
     dimData: {
+      default: () => {},
+      type: Object
+    },
+    dimLayout: {
       default: () => {},
       type: Object
     }
@@ -45,7 +49,9 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.dim-input{
+<style lang="scss">
+.desp-wrap{
+  // float: left;
+  width: 100%;
 }
 </style>

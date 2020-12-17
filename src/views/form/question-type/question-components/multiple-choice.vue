@@ -1,16 +1,19 @@
 <template>
-  <div>
-    <div>{{ dimData.name }}</div>
-    <el-checkbox-group
-      v-model="checkbox"
-      class="me-checkbox-group"
-    >
-      <el-checkbox
-        v-for="(item,index) in dimData.options"
-        :key="index"
-        :label="item.text_show"
-      >{{ item.text_show }}</el-checkbox>
-    </el-checkbox-group>
+  <div class="question-wrap multiple-choice-wrap">
+    <h6 class="question-heading">{{ dimLayout.name }}</h6>
+    <div class="control-wrap">
+      <el-checkbox-group
+
+        v-model="checkbox"
+        class="me-checkbox-group"
+      >
+        <el-checkbox
+          v-for="(item,index) in dimLayout.options"
+          :key="index"
+          :label="item.option_value"
+        >{{ item.option_name }}</el-checkbox>
+      </el-checkbox-group>
+    </div>
   </div>
 </template>
 
@@ -18,6 +21,10 @@
 export default {
   props: {
     dimData: {
+      default: () => {},
+      type: Object
+    },
+    dimLayout: {
       default: () => {},
       type: Object
     }
@@ -29,11 +36,11 @@ export default {
   },
   watch: {
     dimData(n) {
-      this.checkbox = n.value
+      // this.checkbox = n.value
     }
   },
   created() {
-    this.checkbox = this.dimData.value
+    // this.checkbox = this.dimData.value
     // console.log()
   },
   methods: {
@@ -55,7 +62,9 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.dim-checkbox{
+<style lang="scss">
+.multiple-choice-wrap{
+  // float: left;
+  width: 100%;
 }
 </style>
