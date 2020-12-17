@@ -5,7 +5,7 @@
     :close-on-click-modal="false"
     custom-class="xia-dialog-login"
     width="400px"
-    @before-close="closeHandle"
+    @close="closeHandle"
   >
     <el-form
       ref="loginForm"

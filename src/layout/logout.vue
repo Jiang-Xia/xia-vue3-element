@@ -3,9 +3,8 @@
     v-model="loginVisible"
     title="修改密码"
     :close-on-click-modal="false"
-    class="logout-dialog"
+    custom-class="logout-dialog"
     width="481px"
-    :modal="modal"
     @close="closeHandle"
   >
     <el-form

@@ -2,19 +2,20 @@
   <div>
     <div>{{ dimData.name }}</div>
     <div>
-      <el-input v-model="textarea" type="textarea" size="small" />
+      <el-input v-model="textarea" type="textarea" size="small" @change="changeHandle" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    dimData: {
-      default: () => {},
-      type: Object
-    }
-  },
+  inject: ['dimData'],
+  // props: {
+  //   dimData: {
+  //     default: () => {},
+  //     type: Object
+  //   }
+  // },
   data() {
     return {
       textarea: ''
@@ -27,12 +28,16 @@ export default {
     }
   },
   created() {
+    console.log(this.dimData)
     this.textarea = this.dimData.value
     // console.log()
   },
   methods: {
     getRealValue(v) {
       return v
+    },
+    changeHandle() {
+      this.log(this.dimData)
     },
     clickHandle(v) {
       v = this.getRealValue(v)

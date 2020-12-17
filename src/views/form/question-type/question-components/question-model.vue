@@ -3,7 +3,6 @@
     <LongText
       v-if="dimData.type==='long_text'"
       :key="String('LongText_'+questionIndex)"
-      :dim-data="dimData"
       @modify="modifyHandle"
     />
     <ShortText
@@ -63,10 +62,20 @@ export default {
     SingleDropdown,
     Desp
   },
+  provide() {
+    return {
+      dimData: this.dimData,
+      isEditing: this.isEditing
+    }
+  },
   props: {
     dimData: {
       default: () => {},
       type: Object
+    },
+    isEditing: {
+      default: () => false,
+      type: Boolean
     },
     questionIndex: {
       default: () => 0,

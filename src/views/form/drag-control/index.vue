@@ -139,7 +139,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@/styles/scss/_mixins";
-@import "./common.scss";
+@import "../common.scss";
 .form-container{
   .component-list{
       padding:  0 .5rem .5rem .5rem;

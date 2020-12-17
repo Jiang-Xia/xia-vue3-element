@@ -22,7 +22,8 @@
         <el-button
           size="mini"
           type="primary"
-          icon="el-icon-edit"
+          icon="el-icon-view"
+          @click="$refs.Preview.init()"
         />
         <el-button
           size="mini"
@@ -76,6 +77,7 @@
         <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
       </el-tabs>
     </aside>
+    <Preview ref="Preview" />
   </div>
 </template>
 
@@ -83,6 +85,7 @@
 import draggable from 'vuedraggable'
 import addQuestion from './new-temp'
 import DimModel from './question-components/question-model'
+import Preview from './preview'
 import { ref, reactive } from 'vue'
 // const idGlobal = 4
 const controlList = [
@@ -121,7 +124,8 @@ export default {
   components: {
     draggable,
     addQuestion,
-    DimModel
+    DimModel,
+    Preview
   },
   setup() {
     const drag = ref(false)
@@ -215,7 +219,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@/styles/scss/_mixins";
-@import "./common.scss";
+@import "../common.scss";
 .form-container{
   .component-list{
       padding:  0 .5rem .5rem .5rem;
