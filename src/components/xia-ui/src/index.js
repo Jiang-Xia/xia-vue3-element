@@ -3,7 +3,7 @@ const components = [
   XiaDialog
 ]
 const install = function(Vue, options = {}) {
-  // console.log(Vue,options)
+  console.log(Vue, options)
   components.forEach((component) => {
     Vue.component(component.name, component)
   })

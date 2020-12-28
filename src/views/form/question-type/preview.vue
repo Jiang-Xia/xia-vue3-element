@@ -48,6 +48,9 @@ export default {
     },
     closeHandle() {
       this.previewVisible = false
+    },
+    modifyHandle() {
+
     }
   }
 }

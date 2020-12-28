@@ -4,6 +4,7 @@ import Charts from '@/router/modules/charts'
 import Icon from '@/router/modules/icon'
 import Nav from '@/router/modules/nav'
 import Form from '@/router/modules/form'
+import Demo from '@/router/modules/demo'
 import Profile from '@/router/modules/profile'
 // 固定路由
 export const constantRoutes = [
@@ -38,6 +39,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   Dashboard,
   Nav,
+  Demo,
   Form,
   Charts,
   Icon,
