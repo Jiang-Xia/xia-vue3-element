@@ -14,7 +14,6 @@ import ElementPlus from 'element-plus'
 import '@/styles/element-variables.scss'
 /* 组件 */
 import XiaUi from '@/components/xia-ui/src'
-import DeeUi from 'dee-ui'
 /*
   解决点解当前路由报错
 */
@@ -26,7 +25,6 @@ import DeeUi from 'dee-ui'
 // }
 const app = createApp(App)
 app.use(XiaUi)
-app.use(DeeUi)
 app.use(ElementPlus).use(store).use(router).mount('#app')
 
 /*
