@@ -12,6 +12,7 @@ import '@/mock'
 import '@/icons'
 import ElementPlus from 'element-plus'
 import '@/styles/element-variables.scss'
+// import '@/styles/theme/index.scss'
 /* 组件 */
 import XiaUi from '@/components/xia-ui/src'
 /*

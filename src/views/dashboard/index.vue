@@ -1,6 +1,10 @@
 <template>
   <div class="dashboard-container">
-    <div />
+    <el-select v-model="select">
+      <el-option :value="1">blue</el-option>
+      <el-option :value="2">red</el-option>
+      <el-option :value="3">orange</el-option>
+    </el-select>
   </div>
 </template>
 
@@ -16,10 +20,25 @@ export default {
     return {
       antInput: 'antInput',
       nativeInput: 'nativeInput',
-      antAndNative: ''
+      antAndNative: '',
+      select: 1
     }
   },
   watch: {
+    select(n) {
+      this.$nextTick(() => {
+        let str = ''
+
+        if (n === 1) {
+          str = '.body-theme-blue'
+        } else if (n === 2) {
+          str = '.body-theme-red'
+        } else {
+          str = '.body-theme-orange'
+        }
+        document.querySelector('body').classList.add(str)
+      })
+    }
   },
   created() {
   },

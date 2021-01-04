@@ -1,0 +1,16 @@
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+.body-theme-blue {
+  @import './blue.scss';
+  @import "~element-plus/packages/theme-chalk/src/index";
+}
+
+.body-theme-red {
+  @import './red.scss';
+  @import "~element-plus/packages/theme-chalk/src/index";
+}
+
+.body-theme-orange {
+  @import './orange.scss';
+  @import "~element-plus/packages/theme-chalk/src/index";
+}
