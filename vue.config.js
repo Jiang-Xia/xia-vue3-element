@@ -10,8 +10,18 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    host: '0.0.0.0',
-    port: 3330
+    disableHostCheck: true,
+    port: 3330,
+    /* 使用代理 */
+    proxy: {
+      '*': {
+        /* 目标代理服务器地址 */
+        target: 'https://fundsuggest.eastmoney.com',
+        // target: 'http://192.168.31.13:6000',
+        /* 允许跨域 */
+        changeOrigin: true
+      }
+    }
   },
   chainWebpack: config => {
     config.module

@@ -5,6 +5,7 @@
       <el-option :value="2">red</el-option>
       <el-option :value="3">orange</el-option>
     </el-select>
+    <el-input v-model="input" @change="inputChange" />
   </div>
 </template>
 
@@ -21,7 +22,8 @@ export default {
       antInput: 'antInput',
       nativeInput: 'nativeInput',
       antAndNative: '',
-      select: 1
+      select: 1,
+      input: ''
     }
   },
   watch: {
@@ -43,6 +45,12 @@ export default {
   created() {
   },
   methods: {
+    inputChange(val) {
+      const url = '/FundSearch/api/FundSearchAPI.ashx?&m=9&key=' + val + '&_=' + new Date().getTime()
+      this.$axios.get(url).then(res => {
+        console.log('res', res)
+      })
+    }
   }
 }
 </script>

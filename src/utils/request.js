@@ -8,21 +8,28 @@ import { ElMessage } from 'element-plus'
 
 function errorMsg(msg) {
   ElMessage.error({
-    content: msg,
+    message: msg,
     duration: 1500
   })
 }
 const $axios = axios.create({
-  timeout: 4290000
+  timeout: 4290000,
+  baseURL: ''
 })
 $axios.interceptors.request.use(
   config => {
   // openLoading()
     const token = getToken()
-    if (token) {
-      config.headers.Authorization = token // 请求头部添加token
+    if (config.method === 'get') {
+      // 解决get请求axios不能设置Content-Type
+      config.data = true
     }
-    // 请求头部添加token
+    config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    if (token) {
+      // 请求头部添加token
+      config.headers.Authorization = token
+    }
+    console.log(config)
     return config
   },
   error => {
@@ -52,6 +59,7 @@ $axios.interceptors.response.use(
     }
   },
   error => {
+    console.error(error)
     if (error.response) {
       const data = error.response && error.response.data
       switch (error.response.status) {
@@ -88,5 +96,4 @@ $axios.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
 export default $axios
