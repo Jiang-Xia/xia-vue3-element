@@ -20,16 +20,15 @@ $axios.interceptors.request.use(
   config => {
   // openLoading()
     const token = getToken()
-    if (config.method === 'get') {
-      // 解决get请求axios不能设置Content-Type
-      config.data = true
-    }
-    config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    // if (config.method === 'get') {
+    //   // 解决get请求axios不能设置Content-Type
+    //   config.data = true
+    // }
+    // config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
     if (token) {
       // 请求头部添加token
       config.headers.Authorization = token
     }
-    console.log(config)
     return config
   },
   error => {

@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     inputChange(val) {
-      const url = '/FundSearch/api/FundSearchAPI.ashx?&m=9&key=' + val + '&_=' + new Date().getTime()
+      const url = '/proxy-api/FundSearch/api/FundSearchAPI.ashx?&m=9&key=' + val + '&_=' + new Date().getTime()
       this.$axios.get(url).then(res => {
         console.log('res', res)
       })

@@ -14,12 +14,19 @@ module.exports = {
     port: 3330,
     /* 使用代理 */
     proxy: {
-      '*': {
+      '/proxy-api': { // 代理标识
         /* 目标代理服务器地址 */
         target: 'https://fundsuggest.eastmoney.com',
-        // target: 'http://192.168.31.13:6000',
         /* 允许跨域 */
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          // 标识替换
+          // 原请求地址为 /proxy-api/getData 将'/proxy-api'替换''时，
+          // 代理后的请求地址为： http://xxx.xxx.xxx/getData
+          // 若替换为'/other',
+          // 则代理后的请求地址为 http://xxx.xxx.xxx/other/getData
+          '^/proxy-api': ''
+        }
       }
     }
   },
