@@ -11,6 +11,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
+import md5 from 'blueimp-md5'
 export default {
   setup() {
     onMounted(() => {
@@ -43,6 +44,15 @@ export default {
     }
   },
   created() {
+    var hash = md5(new Date().getTime())
+    const timestamp = 'Htzgxb4YyV2T5aQJbR3WRngaXFG6SAKQCsyFZtKXEJhvdHhJ' + hash
+    const url = ' https://smaidataserv.api1.deepaint.cn'
+    console.log(timestamp, hash)
+    this.$axios({
+      method: 'get',
+      url: url,
+      token: timestamp
+    })
   },
   methods: {
     inputChange(val) {
