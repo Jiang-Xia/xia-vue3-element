@@ -14,7 +14,6 @@ import ElementPlus from 'element-plus'
 import '@/styles/element-variables.scss'
 // import '@/styles/theme/index.scss'
 /* 组件 */
-import XiaUi from '@/components/xia-ui/src'
 /*
   解决点解当前路由报错
 */
@@ -25,7 +24,6 @@ import XiaUi from '@/components/xia-ui/src'
 //   return originalPush.call(this, location).catch(err => err)
 // }
 const app = createApp(App)
-app.use(XiaUi)
 app.use(ElementPlus).use(store).use(router).mount('#app')
 
 /*
