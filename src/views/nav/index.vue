@@ -45,14 +45,17 @@ export default {
       input3: '',
       navList: getGroups(navList, 4),
       clickNavHandle: function(item) {
+        if (!item.link) { return }
         window.open(item.link)
       }
     }
+  },
+  created() {
+    console.log(navList)
   }
 }
 </script>
 <style scoped lang="scss">
-// $main-color:#03719C;
 .navs-container{
   background-color: #fff;
   padding: 1rem .5rem;
