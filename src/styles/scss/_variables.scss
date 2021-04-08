@@ -1,14 +1,18 @@
+/* 此文件编写全局scss变量 */
 //color
 $main-color:#03719C;
-// $main-color:#88A6F7;
+// $main-color:#03A444;
+$main-color-text:#333333;
 $main-text-color:#4a4a4a;
 $main-text-color-2:#838383;
 $placeholder-text-color:#c0c4cc;
-// #0F9B8E
 
+$main-white:#ffffff;
 // 导航高亮颜色
-$nav-active-color:#ff0088;
+$nav-active-color:#FF7E79;
+
 //bgc
+$main-bgc:#f9f9f9;
 
 //font size
 $font-size-base: 16px;
@@ -18,13 +22,4 @@ $font-size-l: $font-size-base + 2;
 //size
 $navbar-height: 60px;
 
-// $label-color:#909399;
-// $form-color: #606266;
-
-// 表单控件主要颜色
-// $dim-bg-c:#f5f7fa;
-// $dim-border-c:#e4e7ed;
 $label-color:rgba(0,0,0,0.54);
-// $dim-color:#56585f;
-//  color #606266
-// border #dcdfe6
