@@ -39,6 +39,16 @@ const moduleData = [
     ]
   },
   {
+    name: '科技',
+    type: 'technology',
+    imgList: [
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/%E7%81%AB%E7%AE%AD.jpg',
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/transformers-the-last-knight-3840x2160-transformers-5-4k-5k-13752.jpg',
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/spaceship-3840x2160-futuristic-space-4k-20152.jpg',
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/pacific-rim-uprising-3840x2160-4k-17601.jpg'
+    ]
+  },
+  {
     name: '猫',
     type: 'cat',
     imgList: [
