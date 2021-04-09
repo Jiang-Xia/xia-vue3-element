@@ -3,7 +3,6 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
-  lintOnSave: process.env.NODE_ENV !== 'production',
   css: {
     loaderOptions: {
       // @/ 是 src/ 的别名
@@ -57,5 +56,10 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-  }
+  },
+  outputDir: process.env.outputDir,
+  publicPath: process.env.NODE_ENV === 'production' ? './' : './',
+  assetsDir: 'static',
+  lintOnSave: process.env.NODE_ENV === 'production',
+  productionSourceMap: false
 }

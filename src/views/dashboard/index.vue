@@ -29,6 +29,16 @@
 <script>
 const moduleData = [
   {
+    name: '我的图床',
+    type: 'figure-bed',
+    imgList: [
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/wallhaven-y8xzod.jpg',
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/%E5%86%AC%E5%AD%A3%E8%BA%BA%E5%9C%A8%E9%9B%AA%E5%9C%B0%E7%9A%84%E5%A5%B3%E5%AD%A9%20%E7%8E%AB%E7%91%B0%E8%8A%B1%20%E5%B0%8F%E7%8B%97%204k%E9%AB%98%E6%B8%85%E5%A3%81%E7%BA%B8_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg',
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/wallhaven-kwd9d1.png',
+      'https://cdn.jsdelivr.net/gh/jiang-xia/figure-bed/img/uglydolls-3840x2160-4k-21814.jpg'
+    ]
+  },
+  {
     name: '猫',
     type: 'cat',
     imgList: [
