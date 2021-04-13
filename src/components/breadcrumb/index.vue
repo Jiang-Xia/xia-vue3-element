@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import pathToRegexp from 'path-to-regexp'
+import * as pathToRegexp from 'path-to-regexp'
 export default {
   data() {
     return {
@@ -33,7 +33,7 @@ export default {
       // console.log(this.$route.matched, matched)
       const first = matched[0]
       if (!this.isDashboard(first)) {
-        matched = [{ path: '/Index', meta: { title: '首页' }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
       }
       this.levelList = matched.filter(item => item.meta && item.meta.title)
     },
@@ -42,7 +42,7 @@ export default {
       if (!name) {
         return false
       }
-      return name.trim().toLocaleLowerCase() === 'Index'.toLocaleLowerCase()
+      return name.trim().toLocaleLowerCase() === 'dashboard'.toLocaleLowerCase()
     },
     pathCompile(path) {
       // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561

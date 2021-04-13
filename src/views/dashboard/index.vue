@@ -13,7 +13,6 @@
     <!--
     <section>
       <video
-        crossorigin="anonymous"
         width="400"
         height="300"
         preload="auto"
@@ -69,7 +68,7 @@ const moduleData = [
     ]
   }
 ]
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 export default {
   setup() {
     onMounted(() => {
@@ -93,7 +92,6 @@ export default {
   padding: 1rem;
   height: 100%;
   .module-title{
-    font-size: 14px;
     margin-bottom: .8rem;
     font-weight: 600;
     display: flex;

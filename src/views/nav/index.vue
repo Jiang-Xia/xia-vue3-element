@@ -29,8 +29,8 @@
 import navList from './nav.json'
 import logo from '@/assets/img/logo/android-chrome-512x512.png'
 function getGroups(array, subGroupLength) {
-  var index = 0
-  var newArray = []
+  let index = 0
+  const newArray = []
 
   while (index < array.length) {
     newArray.push(array.slice(index, index += subGroupLength))
@@ -79,7 +79,8 @@ export default {
     cursor: pointer;
     border-radius: 5px;
     padding: 1rem 0.8rem;
-    min-height: 10rem;
+    height: 10rem;
+    min-height: 160px;
     box-shadow: 0 0 12px rgba($color: #000000, $alpha: .1);
     border: 1px solid #e5e9f2;
   }
