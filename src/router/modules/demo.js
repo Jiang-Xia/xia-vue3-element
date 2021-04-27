@@ -11,6 +11,14 @@ const Demo = {
   },
   children: [
     {
+      path: 'theme',
+      component: () => import('@/views/demo/theme'),
+      meta: {
+        activeMenu: '/demo/theme',
+        title: '换肤'
+      }
+    },
+    {
       path: 'index',
       component: () => import('@/views/demo/index'),
       meta: {

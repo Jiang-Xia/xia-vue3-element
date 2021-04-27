@@ -4,24 +4,13 @@ import router from './router'
 import store from './store'
 import '@/styles/base.scss'
 import '@/utils/rem.js'
-import '@/styles/base.scss'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './permission'
 import '@/mock'
 import '@/icons'
 import ElementPlus from 'element-plus'
 import '@/styles/element-variables.scss'
-// import '@/styles/theme/index.scss'
 /* 组件 */
-/*
-  解决点解当前路由报错
-*/
-// import Router from 'vue-router'
-// const originalPush = Router.prototype.push
-// Router.prototype.push = function push (location, onResolve, onReject) {
-//   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
-//   return originalPush.call(this, location).catch(err => err)
-// }
 const app = createApp(App)
 app.use(ElementPlus).use(store).use(router).mount('#app')
 
