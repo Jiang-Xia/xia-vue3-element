@@ -87,21 +87,20 @@ export default {
   .step-wrap{
     min-height: 50rem;
     padding: 1rem;
-    background-color: #909399;
   }
   .step-content-container{
-    // .step-wrap:nth-child(1){
-    //   background-color: #67C23A;
-    // }
-    // .step-wrap:nth-child(2){
-    //   background-color: #E6A23C;
-    // }
-    // .step-wrap:nth-child(3){
-    //   background-color: #F56C6C;
-    // }
-    // .step-wrap:nth-child(4){
-    //   background-color: #909399;
-    // }
+    .step-wrap:nth-child(1){
+      // background-color: #67C23A;
+    }
+    .step-wrap:nth-child(2){
+      // background-color: #E6A23C;
+    }
+    .step-wrap:nth-child(3){
+      // background-color: #F56C6C;
+    }
+    .step-wrap:nth-child(4){
+      // background-color: #eeeeee;
+    }
   }
 }
 </style>

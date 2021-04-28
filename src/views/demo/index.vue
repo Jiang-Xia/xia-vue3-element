@@ -4,6 +4,9 @@
       <el-tab-pane label="图片热区">
         <ImageHotArea />
       </el-tab-pane>
+      <el-tab-pane label="设置主题">
+        <Theme />
+      </el-tab-pane>
       <el-tab-pane label="其他">
         其他
       </el-tab-pane>
@@ -13,9 +16,11 @@
 
 <script>
 import ImageHotArea from './components/image-hot-area'
+import Theme from './components/theme'
 export default {
   components: {
-    ImageHotArea
+    ImageHotArea,
+    Theme
   },
   setup() {
     return {

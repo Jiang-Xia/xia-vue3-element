@@ -38,7 +38,7 @@ const defaultSettings = {
 const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings
 
 const state = {
-  theme: variables.theme,
+  theme: variables.theme || '#03719C',
   showSettings: showSettings,
   tagsView: tagsView,
   fixedHeader: fixedHeader,
