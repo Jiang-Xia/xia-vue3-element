@@ -1,9 +1,5 @@
 /* 改变elementUi主题色变量 */
-
-$--color-primary: #03719C;
-// 409EFF
-// $--color-primary: #88A6F7;
-
+$--color-primary: $main-color;
 /* 改变 icon 字体路径变量，必需 */
 $--font-path: '~element-plus/lib/theme-chalk/fonts'; 
 @import "~element-plus/packages/theme-chalk/src/index";
