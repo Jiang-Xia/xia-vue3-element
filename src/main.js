@@ -10,6 +10,8 @@ import '@/mock'
 import '@/icons'
 import ElementPlus from 'element-plus'
 import '@/styles/element-variables.scss'
+import '@/assets/font/dee-icon/iconfont.css'
+
 /* 组件 */
 const app = createApp(App)
 app.use(ElementPlus).use(store).use(router).mount('#app')
