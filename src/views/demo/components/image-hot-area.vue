@@ -43,7 +43,7 @@
       </map>
     </div>
     <div>
-      <img src="./mm1.jpg" alt="美女" usemap="#MM" width="256" height="191">
+      <img src="./img/mm1.jpg" alt="美女" usemap="#MM" width="256" height="191">
       <map id="MM" name="MM">
         <area
           class="my-area"
@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import barImg from './条形cut.jpg'
+import barImg from './img/条形cut.jpg'
 export default {
   setup() {
     return {

@@ -1,13 +1,16 @@
 <template>
   <div class="demo-container">
-    <el-tabs type="border-card">
-      <el-tab-pane label="图片热区">
+    <el-tabs v-model="activeName" type="border-card">
+      <el-tab-pane label="图片热区" name="1">
         <ImageHotArea />
       </el-tab-pane>
-      <el-tab-pane label="设置主题">
+      <el-tab-pane label="设置主题" name="2">
         <Theme />
       </el-tab-pane>
-      <el-tab-pane label="其他">
+      <el-tab-pane label="长列表" name="3">
+        <LongList />
+      </el-tab-pane>
+      <el-tab-pane label="其他" name="4">
         其他
       </el-tab-pane>
     </el-tabs>
@@ -17,14 +20,16 @@
 <script>
 import ImageHotArea from './components/image-hot-area'
 import Theme from './components/theme'
+import LongList from './components/long-list'
 export default {
   components: {
     ImageHotArea,
-    Theme
+    Theme,
+    LongList
   },
   setup() {
     return {
-
+      activeName: '3'
     }
   }
 }
