@@ -36,7 +36,6 @@ router.beforeEach(async(to, from, next) => {
           const res = await store.dispatch('user/getUserInfo')
           const { user_type } = res[0]
           const accessRoutes = await store.dispatch('permission/generateRoutes', [user_type])
-          // console.log(accessRoutes)
           for (const item of accessRoutes) {
             router.addRoute('', item)
           }
@@ -50,7 +49,6 @@ router.beforeEach(async(to, from, next) => {
     }
   }
 })
-
 router.afterEach(() => {
   // finish progress bar
   NProgress.done()

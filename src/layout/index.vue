@@ -168,6 +168,9 @@ export default {
     const collapsed = ref(false)
     onMounted(() => {
       // 自动收起和展开导航栏
+      console.log('======全部路由表======')
+      console.log(router.options.routes)
+      console.log('======全部路由表======')
       mobileCallBack()
       window.addEventListener('resize', mobileCallBack)
     })
