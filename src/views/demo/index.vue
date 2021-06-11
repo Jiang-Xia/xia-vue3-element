@@ -10,7 +10,10 @@
       <el-tab-pane label="长列表" name="3">
         <LongList />
       </el-tab-pane>
-      <el-tab-pane label="其他" name="4">
+      <el-tab-pane label="路由表" name="4">
+        <RouterList />
+      </el-tab-pane>
+      <el-tab-pane label="其他" name="5">
         其他
       </el-tab-pane>
     </el-tabs>
@@ -21,11 +24,13 @@
 import ImageHotArea from './components/image-hot-area'
 import Theme from './components/theme'
 import LongList from './components/long-list'
+import RouterList from './components/router-list'
 export default {
   components: {
     ImageHotArea,
     Theme,
-    LongList
+    LongList,
+    RouterList
   },
   setup() {
     return {

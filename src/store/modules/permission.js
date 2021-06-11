@@ -1,6 +1,9 @@
 import { asyncRoutes, constantRoutes } from '@/router'
 // import store from '@/store'
 import { convertRouter } from '@/utils/handleRoutes'
+import { BackendRoutes } from '@/router/BackendRoutes'
+import Layout from '@/layout'
+
 /**
  * Use meta.role to determine if the current user has permission
  * @param roles
@@ -13,26 +16,67 @@ function hasPermission(roles, route) {
     return true
   }
 }
-
 /**
  * Filter asynchronous routing tables by recursion
  * @param routes asyncRoutes
  * @param roles
  */
-export function filterAsyncRoutes(routes, roles) {
+export function filterAsyncRoutes(routes) {
   const res = []
-  routes.forEach(route => {
-    const tmp = { ...route }
-    if (hasPermission(roles, tmp)) {
-      if (tmp.children) {
-        tmp.children = filterAsyncRoutes(tmp.children, roles)
-      }
-      res.push(tmp)
-    }
-  })
 
+  routes.forEach((route = []) => {
+    // console.log(route, route.component,1111111111111111111111111)
+    const component = route.component
+    const tmp = {
+      path: route.path,
+      /* eslint-disable */
+      /* 
+      * @/views 意思就是告诉 webpack全部打包views文件目录下的所有文件 
+      * 两种方法导入都可以，import方法eslint报错  require不报错
+      */
+      // component: route.component.includes('layout') ? Layout : () => import(`@/views${component}`),
+      component: route.component.includes('layout') ? Layout : () => require(`@/views${component}`,),
+     /* eslint-disable line */
+      redirect: route.redirect || undefined,
+      hidden: !!route.hidden,
+      name: route.name,
+      meta: {},
+      children: route.children || undefined
+    }
+    tmp.meta.title = route.title
+    if (route.icon) {
+      tmp.meta.icon = route.icon
+    }
+    if (tmp.children) {
+      if (tmp.children.length) {
+        tmp.alwaysShow = true
+      }
+      tmp.children = filterAsyncRoutes(tmp.children)
+    }
+    res.push(tmp)
+  })
   return res
 }
+
+// /**
+//  * Filter asynchronous routing tables by recursion
+//  * @param routes asyncRoutes
+//  * @param roles
+//  */
+// export function filterAsyncRoutes(routes, roles) {
+//   const res = []
+//   routes.forEach(route => {
+//     const tmp = { ...route }
+//     if (hasPermission(roles, tmp)) {
+//       if (tmp.children) {
+//         tmp.children = filterAsyncRoutes(tmp.children, roles)
+//       }
+//       res.push(tmp)
+//     }
+//   })
+
+//   return res
+// }
 
 const state = {
   routes: [],
@@ -46,80 +90,18 @@ const mutations = {
   }
 }
 
-/*
- * 相当于后端返回的路由表
- *
-*/
-const BackendRoutes = [
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: '@/layout/index',
-    redirect: { path: '/dashboard/index' },
-    meta: {
-      title: '首页',
-      roles: [1, 2]
-    },
-    children: [
-      {
-        path: 'index',
-        name: 'DashboardResultQuery',
-        component: '@/views/dashboard/index',
-        meta: {
-          activeMenu: '/dashboard'
-        }
-      }
-    ]
-  },
-  {
-    path: '/demo',
-    name: 'Demo',
-    component: '@/layout/index',
-    redirect: { path: '/demo/index' },
-    meta: {
-      title: '测试',
-      roles: [1, 2]
-    },
-    children: [
-      {
-        path: 'theme',
-        component: '@/views/demo/theme',
-        meta: {
-          activeMenu: '/demo/theme',
-          title: '换肤'
-        }
-      },
-      {
-        path: 'index',
-        component: '@/views/demo/index',
-        meta: {
-          activeMenu: '/demo/index',
-          title: 'demo'
-        }
-      },
-      {
-        path: 'step',
-        component: '@/views/demo/step/index',
-        meta: {
-          activeMenu: '/demo/step',
-          title: '步骤'
-        }
-      }
-    ]
-  }
-]
 const actions = {
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes(2)) {
         // 全部路由
-        accessedRoutes = asyncRoutes
+        accessedRoutes = BackendRoutes
       } else {
-        accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+        accessedRoutes = filterAsyncRoutes(BackendRoutes, roles)
       }
       // console.log(accessedRoutes)
-      commit('SET_ROUTES', accessedRoutes)
+      commit('SET_ROUTES', BackendRoutes)
       // console.log('=================', accessedRoutes, '=================')
       resolve(accessedRoutes)
     })
