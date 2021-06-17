@@ -65,7 +65,6 @@
         </div>
         <Breadcrumb />
         <div class="user-wrap fr">
-          <!-- <i class="user-icon fas fa-user-circle" /> -->
           <el-dropdown v-if="userInfo.truename" @command="commandHandle">
             <span class="el-dropdown-link">
               <svg-icon icon-class="user-icon" class="user-icon" />
@@ -85,7 +84,7 @@
           <span v-else class="login" @click="loginHandle">请登录</span>
         </div>
         <div style="height:100%" class="center fr pointer" @click="requestFullscreenHandle">
-          <span class="fas fa-expand-arrows-alt" />
+          <span class="xia xia-expand-arrows-alt" />
         </div>
       </el-header>
       <!-- 导航头结束 -->
@@ -148,7 +147,7 @@ export default {
       return route.path
     })
     const userInfo = computed(() => {
-      console.log(getInfo())
+      // console.log(getInfo())
       return getInfo()
     })
     const isMobile = computed(() => {
@@ -168,9 +167,9 @@ export default {
     const collapsed = ref(false)
     onMounted(() => {
       // 自动收起和展开导航栏
-      console.log('======全部路由表======')
-      console.log(router.options.routes)
-      console.log('======全部路由表======')
+      // console.log('======全部路由表======')
+      // console.log(router.options.routes)
+      // console.log('======全部路由表======')
       mobileCallBack()
       window.addEventListener('resize', mobileCallBack)
     })

@@ -1,3 +1,7 @@
+<!--
+ * @Author: 江夏
+ * @LastEditors: 江夏
+-->
 <template>
   <el-dialog
     v-model="loginVisible"
@@ -15,7 +19,7 @@
     >
       <el-form-item prop="username" class="me-item">
         <div class="xia-item">
-          <i class="fas fa-user mg-r-10" />
+          <i class="xia xia-user mg-r-10" />
           <el-input
             v-model="loginForm.username"
             class="inline"
@@ -26,7 +30,7 @@
       </el-form-item>
       <el-form-item prop="password" class="me-item">
         <div class="xia-item">
-          <i class="fas fa-lock mg-r-10" />
+          <i class="xia xia-lock mg-r-10" />
           <el-input
             v-model="loginForm.password"
             class="inline"

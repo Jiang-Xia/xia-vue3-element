@@ -1,10 +1,10 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
- * @LastEditTime: 2021-06-11 17:12:01
+ * @LastEditTime: 2021-06-17 11:32:52
  * @LastEditors: 江夏
  * @Description: In User Settings Edit
- * @FilePath: \xia-vue3-element\src\router\BackendRoutes.js
+ * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
  */
 
 export const BackendRoutes = [
@@ -23,7 +23,8 @@ export const BackendRoutes = [
         name: 'DashboardResultQuery',
         component: '/dashboard/index',
         meta: {
-          activeMenu: '/dashboard'
+          activeMenu: '/dashboard',
+          title: '首页'
         }
       }
     ]
@@ -164,6 +165,26 @@ export const BackendRoutes = [
         meta: {
           activeMenu: '/nav',
           title: ''
+        }
+      }
+    ]
+  },
+  {
+    path: '/configs',
+    name: 'Configs',
+    component: '@/layout/index',
+    redirect: { path: '/configs/menu' },
+    meta: {
+      title: '配置',
+      roles: [1, 2]
+    },
+    children: [
+      {
+        path: 'menu',
+        props: true,
+        component: '/configs/menu',
+        meta: {
+          activeMenu: '/configs'
         }
       }
     ]

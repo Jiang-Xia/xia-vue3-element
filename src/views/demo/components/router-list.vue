@@ -1,8 +1,12 @@
+<!--
+ * @Author: 江夏
+ * @LastEditors: 江夏
+-->
 <template>
   <div class="long-list-container">
     <el-button @click="clickBtn">点击我，异步获取动态组件</el-button>
     <div>
-      <component :is="componentId"></component>
+      <component :is="componentId" />
     </div>
   </div>
 </template>
@@ -13,15 +17,12 @@ export default {
   },
   data() {
     return {
-      componentId:null
+      componentId: null
     }
   },
   methods: {
     clickBtn() {
-      const  path= '/import/index'
-      const component = () => import(`@/views${path}`)
-      this.componentId = component
-      console.log(component)
+
     }
   }
 }

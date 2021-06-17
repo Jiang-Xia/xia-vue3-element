@@ -11,7 +11,7 @@
           @click="addControlHandle(element)"
         >
           <span>{{ element.name }}</span>
-          <span class="fr fas fa-plus-circle" />
+          <span class="fr xia xia-check-circle" />
         </div>
       </section>
     </aside>

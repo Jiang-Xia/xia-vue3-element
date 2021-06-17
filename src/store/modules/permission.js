@@ -1,21 +1,21 @@
-import { asyncRoutes, constantRoutes } from '@/router'
+import { constantRoutes } from '@/router'
 // import store from '@/store'
-import { convertRouter } from '@/utils/handleRoutes'
-import { BackendRoutes } from '@/router/BackendRoutes'
+// import { convertRouter } from '@/utils/handleRoutes'
 import Layout from '@/layout'
+import { getUserRoutes } from '@/api/common'
 
 /**
  * Use meta.role to determine if the current user has permission
  * @param roles
  * @param route
  */
-function hasPermission(roles, route) {
-  if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role))
-  } else {
-    return true
-  }
-}
+// function hasPermission(roles, route) {
+//   if (route.meta && route.meta.roles) {
+//     return roles.some(role => route.meta.roles.includes(role))
+//   } else {
+//     return true
+//   }
+// }
 /**
  * Filter asynchronous routing tables by recursion
  * @param routes asyncRoutes
@@ -24,8 +24,8 @@ function hasPermission(roles, route) {
 export function filterAsyncRoutes(routes) {
   const res = []
 
-  routes.forEach((route = []) => {
-    // console.log(route, route.component,1111111111111111111111111)
+  routes.forEach((route = {}) => {
+    // console.log(route, route.component, 1111111111111111111111111)
     const component = route.component
     const tmp = {
       path: route.path,
@@ -40,10 +40,12 @@ export function filterAsyncRoutes(routes) {
       redirect: route.redirect || undefined,
       hidden: !!route.hidden,
       name: route.name,
-      meta: {},
+      meta: {
+        ...route.meta
+      },
       children: route.children || undefined
     }
-    tmp.meta.title = route.title
+    tmp.meta.title = route.meta.title
     if (route.icon) {
       tmp.meta.icon = route.icon
     }
@@ -93,17 +95,19 @@ const mutations = {
 const actions = {
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
-      let accessedRoutes
-      if (roles.includes(2)) {
-        // 全部路由
-        accessedRoutes = BackendRoutes
-      } else {
-        accessedRoutes = filterAsyncRoutes(BackendRoutes, roles)
-      }
-      // console.log(accessedRoutes)
-      commit('SET_ROUTES', BackendRoutes)
-      // console.log('=================', accessedRoutes, '=================')
-      resolve(accessedRoutes)
+      getUserRoutes().then(res=>{
+        let accessedRoutes = res.data.routes
+        // console.log('=================', accessedRoutes, '=================')
+        if (roles.includes(2)) {
+          // 全部路由
+          accessedRoutes = accessedRoutes
+        } else {
+          accessedRoutes = filterAsyncRoutes(accessedRoutes, roles)
+        }
+        commit('SET_ROUTES', accessedRoutes)
+        resolve(accessedRoutes)
+      })
+
     })
   }
 }

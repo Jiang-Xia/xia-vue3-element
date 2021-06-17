@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "xia"; /* Project id 2534868 */
+  src: url('iconfont.woff2?t=1623901620332') format('woff2'),
+       url('iconfont.woff?t=1623901620332') format('woff'),
+       url('iconfont.ttf?t=1623901620332') format('truetype');
+}
+
+.xia {
+  font-family: "xia" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.xia-dashboard:before {
+  content: "\e78b";
+}
+
+.xia-user:before {
+  content: "\e7b2";
+}
+
+.xia-areachart:before {
+  content: "\e7b3";
+}
+
+.xia-home:before {
+  content: "\e7c6";
+}
+
+.xia-daohang:before {
+  content: "\e6d4";
+}
+
+.xia-daohang1:before {
+  content: "\e7a6";
+}
+
+.xia-navigation:before {
+  content: "\e67a";
+}
+
+.xia-zip:before {
+  content: "\e638";
+}
+
+.xia-qiehuan2:before {
+  content: "\e603";
+}
+
+.xia-qiehuan:before {
+  content: "\e619";
+}
+
+.xia-qiehuan4:before {
+  content: "\e642";
+}
+
+.xia-delete:before {
+  content: "\e7c3";
+}
+
+.xia-filter:before {
+  content: "\e7c7";
+}
+
+.xia-lock:before {
+  content: "\e7c9";
+}
+
+.xia-check:before {
+  content: "\e7fc";
+}
+
+.xia-close:before {
+  content: "\e7fd";
+}
+
+.xia-minus:before {
+  content: "\e7fe";
+}
+
+.xia-search:before {
+  content: "\e8ef";
+}
+
+.xia-eye-close:before {
+  content: "\e8ff";
+}
+
+.xia-sync:before {
+  content: "\e786";
+}
+
+.xia-message:before {
+  content: "\e78a";
+}
+
+.xia-poweroff:before {
+  content: "\e78c";
+}
+
+.xia-adduser:before {
+  content: "\e7ae";
+}
+
+.xia-deleteteam:before {
+  content: "\e7af";
+}
+
+.xia-deleteuser:before {
+  content: "\e7b0";
+}
+
+.xia-addteam:before {
+  content: "\e7b1";
+}
+
+.xia-link:before {
+  content: "\e7e2";
+}
+
+.xia-tag:before {
+  content: "\e7e4";
+}
+
+.xia-swap:before {
+  content: "\e7f2";
+}
+
+.xia-check-circle:before {
+  content: "\e77d";
+}
+
+.xia-close-circle:before {
+  content: "\e77e";
+}
+
+.xia-minus-circle:before {
+  content: "\e780";
+}
+
+.xia-setting:before {
+  content: "\e78e";
+}
+
+.xia-location:before {
+  content: "\e790";
+}
+
+.xia-safetycertificate:before {
+  content: "\e7c0";
+}
+

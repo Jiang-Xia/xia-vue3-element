@@ -43,7 +43,7 @@ export default {
     },
     clickHandle(v) {
       v = this.getRealValue(v)
-      
+
       this.select = v === this.select ? '' : v
       // console.log(this.dimData.value, '!!!!!!!!!!', v)
       this.$emit('modify', {

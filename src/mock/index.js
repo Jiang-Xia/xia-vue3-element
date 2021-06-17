@@ -1,3 +1,7 @@
+/*
+ * @Author: 江夏
+ * @LastEditors: 江夏
+ */
 import Mock from 'mockjs'
 import * as mockData from './mock'
 // import {makeToken} from './mock'
@@ -14,7 +18,7 @@ function formattingData(data) {
     code: data.code,
     msg: (data.code === '00000' ? '请求成功' : '请求失败')
   }
-  obj = {...obj,...data}
+  obj = { ...obj, ...data }
   console.log('===========================')
   console.log(obj)
   console.log('===========================')
@@ -25,4 +29,5 @@ Mock.mock('/api/v2/user_config/global_configs', (ops) => formattingData(mockData
 Mock.mock('/api/v2/token/user/make_token', (ops) => formattingData(mockData.makeToken(ops)))
 Mock.mock('/api/v2/token/user/destroy_token', (ops) => formattingData(mockData.destoryToken(ops)))
 Mock.mock('/api/v2/token/user/token_profile', (ops) => formattingData(mockData.tokenProfile(ops)))
-Mock.mock('/mock/news', (ops) => formattingData(mockData.produceNewsData(ops)))
+Mock.mock('/api/v2/mock/news', (ops) => formattingData(mockData.produceNewsData(ops)))
+Mock.mock('/api/v2/user/user_routes', (ops) => formattingData(mockData.userRoutes(ops)))

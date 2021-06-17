@@ -35,7 +35,7 @@ export default {
     },
     clickHandle(v) {
       v = this.getRealValue(v)
-      
+
       this.input = v === this.input ? '' : v
       // console.log(this.dimData.value, '!!!!!!!!!!', v)
       this.$emit('modify', {

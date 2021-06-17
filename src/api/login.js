@@ -1,3 +1,7 @@
+/*
+ * @Author: 江夏
+ * @LastEditors: 江夏
+ */
 import $axios from '@/utils/request.js'
 import config from '@/api/config'
 export const handleLogin = async(data) => {

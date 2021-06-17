@@ -1,16 +1,19 @@
+/*
+ * @Author: 江夏
+ * @LastEditors: 江夏
+ */
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import '@/styles/base.scss'
 import '@/utils/rem.js'
-import '@fortawesome/fontawesome-free/css/all.min.css'
 import './permission'
 import '@/mock'
 import '@/icons'
 import ElementPlus from 'element-plus'
 import '@/styles/element-variables.scss'
-import '@/assets/font/dee-icon/iconfont.css'
+import '@/assets/font/xia-icon/iconfont.css'
 
 /* 组件 */
 const app = createApp(App)
