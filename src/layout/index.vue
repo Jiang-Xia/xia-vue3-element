@@ -24,7 +24,7 @@
               class="me-item"
               :index="item.path"
             >
-              <svg-icon :icon-class="item.path.substring(1)" />
+              <span :class="item.meta.icon" />
               <span
                 v-show="!collapsed"
                 style="margin-left:0.5rem;"
@@ -36,7 +36,7 @@
               :index="item.path"
             >
               <template #title>
-                <svg-icon :icon-class="item.path.substring(1)" />
+                <span :class="item.meta.icon" />
                 <span
                   v-show="!collapsed"
                   style="margin-left:0.5rem;"

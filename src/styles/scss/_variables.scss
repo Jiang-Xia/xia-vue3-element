@@ -1,11 +1,28 @@
 /* 此文件编写全局scss变量 */
 //color
-$main-color:#03719C;
+$main-color:#03719C;// 主题色
+$minor-color:#517bcb; // 辅助色
 // $main-color:#03A444;
 $main-color-text:#333333;
 $main-text-color:#4a4a4a;
 $main-text-color-2:#838383;
+// 次要文字颜色
+$minor-text-color:#9b9b9b;
 $placeholder-text-color:#c0c4cc;
+
+$main-white:#ffffff;
+// 导航高亮颜色
+$nav-active-color:#ff7e79;
+
+//bgc
+$main-bgc:#f9f9f9;
+// 次要 bgc
+$minor-bgc:#f7f7f7;
+$main-gradient-color:linear-gradient(90deg, $minor-color 0%, $main-color 100%);
+
+// border
+$main-border-color:#e7e7e7;
+$minor-border-color:#d8d8d8;
 
 .a{
     color: #364f6b;
@@ -29,3 +46,6 @@ $font-size-l: $font-size-base + 2;
 $navbar-height: 60px;
 
 $label-color:rgba(0,0,0,0.54);
+
+// 阴影
+$main-box-shadow:0 2px 12px 0 rgba(0, 0, 0, 0.1);

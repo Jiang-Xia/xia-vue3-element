@@ -1,7 +1,7 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
- * @LastEditTime: 2021-06-17 11:32:52
+ * @LastEditTime: 2021-06-17 13:59:09
  * @LastEditors: 江夏
  * @Description: In User Settings Edit
  * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
@@ -13,6 +13,7 @@ export const BackendRoutes = [
     name: 'Dashboard',
     component: '@/layout/index',
     redirect: { path: '/dashboard/index' },
+    icon: 'xia xia-home',
     meta: {
       title: '首页',
       roles: [1, 2]
@@ -184,6 +185,16 @@ export const BackendRoutes = [
         props: true,
         component: '/configs/menu',
         meta: {
+          title: '菜单管理',
+          activeMenu: '/configs'
+        }
+      },
+      {
+        path: 'user',
+        props: true,
+        component: '/configs/user',
+        meta: {
+          title: '用户管理',
           activeMenu: '/configs'
         }
       }

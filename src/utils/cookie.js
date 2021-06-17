@@ -1,6 +1,10 @@
+/*
+ * @Author: 江夏
+ * @LastEditors: 江夏
+ */
 import Cookies from 'js-cookie'
-const TokenKey = 'sys_token'
-const InfoKey = 'sys_info'
+const TokenKey = 'xia_token'
+const InfoKey = 'xia_info'
 let day = '' // 一天时间
 export function getToken() {
   return Cookies.get(TokenKey)
