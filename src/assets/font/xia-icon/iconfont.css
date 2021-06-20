@@ -1,8 +1,8 @@
 @font-face {
   font-family: "xia"; /* Project id 2534868 */
-  src: url('iconfont.woff2?t=1623901620332') format('woff2'),
-       url('iconfont.woff?t=1623901620332') format('woff'),
-       url('iconfont.ttf?t=1623901620332') format('truetype');
+  src: url('iconfont.woff2?t=1624172516884') format('woff2'),
+       url('iconfont.woff?t=1624172516884') format('woff'),
+       url('iconfont.ttf?t=1624172516884') format('truetype');
 }
 
 .xia {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.xia-tool:before {
+  content: "\e647";
+}
+
+.xia-profile:before {
+  content: "\e659";
+}
+
+.xia-smile:before {
+  content: "\ebf0";
+}
+
+.xia-form:before {
+  content: "\e616";
+}
+
+.xia-demo:before {
+  content: "\e6ac";
 }
 
 .xia-dashboard:before {
@@ -29,11 +49,7 @@
   content: "\e7c6";
 }
 
-.xia-daohang:before {
-  content: "\e6d4";
-}
-
-.xia-daohang1:before {
+.xia-nav:before {
   content: "\e7a6";
 }
 

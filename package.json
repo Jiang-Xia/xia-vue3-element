@@ -16,6 +16,7 @@
     "echarts": "^4.9.0",
     "echarts-liquidfill": "^2.0.6",
     "emojilib": "^2.4.0",
+    "js-base64": "^3.6.1",
     "js-cookie": "^2.2.1",
     "localforage": "^1.9.0",
     "nprogress": "^0.2.0",
@@ -43,7 +44,7 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "lint-staged": "^9.5.0",
     "mockjs": "^1.1.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "svg-sprite-loader": "^5.0.0",
     "svgo-loader": "^2.2.1"

@@ -24,7 +24,7 @@
               class="me-item"
               :index="item.path"
             >
-              <span :class="item.meta.icon" />
+              <div class="me-item-icon" :class="item.meta.icon" />
               <span
                 v-show="!collapsed"
                 style="margin-left:0.5rem;"
@@ -36,7 +36,7 @@
               :index="item.path"
             >
               <template #title>
-                <span :class="item.meta.icon" />
+                <div class="me-item-icon" :class="item.meta.icon" />
                 <span
                   v-show="!collapsed"
                   style="margin-left:0.5rem;"
@@ -281,6 +281,12 @@ export default {
         color: #fff;
         font-size: 14px;
       }
+    }
+    .me-item-icon{
+      display: inline;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
     }
   }
   .xia-scrollbar{

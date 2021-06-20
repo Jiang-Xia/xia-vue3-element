@@ -1,7 +1,7 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
- * @LastEditTime: 2021-06-17 13:59:09
+ * @LastEditTime: 2021-06-20 15:13:22
  * @LastEditors: 江夏
  * @Description: In User Settings Edit
  * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
@@ -35,6 +35,7 @@ export const BackendRoutes = [
     name: 'Demo',
     component: '@/layout/index',
     redirect: { path: '/demo/index' },
+    icon: 'xia xia-demo',
     meta: {
       title: '测试',
       roles: [1, 2]
@@ -71,6 +72,7 @@ export const BackendRoutes = [
     name: 'Charts',
     component: '@/layout/index',
     redirect: { path: '/charts/index' },
+    icon: 'xia xia-areachart',
     meta: {
       title: '图表',
       roles: [1, 2]
@@ -91,6 +93,7 @@ export const BackendRoutes = [
     name: 'Form',
     component: '@/layout/index',
     redirect: { path: '/form/index' },
+    icon: 'xia xia-form',
     meta: {
       title: '表单',
       roles: [1, 2]
@@ -119,6 +122,7 @@ export const BackendRoutes = [
     name: 'Icon',
     component: '@/layout/index',
     redirect: { path: '/icon/index' },
+    icon: 'xia xia-smile',
     meta: {
       title: '图标',
       roles: [1, 2]
@@ -155,6 +159,7 @@ export const BackendRoutes = [
     name: 'Nav',
     component: '@/layout/index',
     redirect: { path: '/nav/index' },
+    icon: 'xia xia-nav',
     meta: {
       title: '导航',
       roles: [1, 2]
@@ -171,10 +176,33 @@ export const BackendRoutes = [
     ]
   },
   {
+    path: '/tools',
+    name: 'Tools',
+    component: '@/layout/index',
+    redirect: { path: '/tools/my' },
+    icon: 'xia xia-tool',
+    meta: {
+      title: '工具',
+      roles: [1, 2]
+    },
+    children: [
+      {
+        path: 'my',
+        props: true,
+        component: '/tools/my',
+        meta: {
+          title: '我的工具',
+          activeMenu: '/tools'
+        }
+      }
+    ]
+  },
+  {
     path: '/configs',
     name: 'Configs',
     component: '@/layout/index',
     redirect: { path: '/configs/menu' },
+    icon: 'xia xia-setting',
     meta: {
       title: '配置',
       roles: [1, 2]
@@ -205,6 +233,7 @@ export const BackendRoutes = [
     name: 'Profile',
     component: '@/layout/index',
     redirect: { path: '/profile/index' },
+    icon: 'xia xia-profile ',
     meta: {
       title: '个人中心',
       roles: [1, 2]
