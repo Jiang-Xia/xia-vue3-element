@@ -110,6 +110,7 @@ export default {
 .theme-container{
   height: 100%;
   background-color: #fff;
+  padding: 8px;
   .drawer-container {
     float: right;
     width: 350px;

@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$slots.listItem)
+    // console.log(this.$slots.listItem)
     this.visibleCount = Math.ceil(this.$refs.listView.clientHeight / this.itemHeight)
     this.start = 0
     this.end = this.start + this.visibleCount

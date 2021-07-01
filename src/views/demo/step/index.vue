@@ -79,7 +79,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .step-container{
-  margin: 0.5rem;
+  padding: 0.5rem;
   background-color: #fff;
   .section-container{
 
