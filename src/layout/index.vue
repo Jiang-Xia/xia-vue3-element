@@ -1,18 +1,17 @@
 <template>
   <el-container class="xia-app-container">
     <!-- 侧边栏开始 -->
-    <el-aside :width="!collapsed?'200px':'auto'">
+    <el-aside :width="!collapsed?'240px':'60px'">
       <div class="logo ellipsis">
         {{ globalConfigs.site_config.global_site_title }}
       </div>
       <el-scrollbar class="xia-scrollbar">
         <el-menu
           :unique-opened="true"
-          class="el-menu-vertical"
+          class="custom-menu-vertical"
+          :class="collapsed?'collapsed':''"
           :default-active="defaultActive"
-          background-color="#343837"
-          text-color="#fff"
-          active-text-color="#fff"
+          background-color="transparent"
           :collapse="collapsed"
           :router="true"
         >
@@ -229,59 +228,16 @@ export default {
   height: 100%;
   background-color: #f9f9f9;
   .el-aside{
-    background-color: #343837;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   }
   .el-header{
-    background-color: #fff;
+    background-color: $main-bgc;
     margin-bottom: 2px;
     padding: 0 0.7rem;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   }
   .el-main{
     padding: 0;
-  }
-  .el-menu-vertical{
-    border-right: solid 1px #343837;
-   .el-menu-item{
-      // background-color: #343837 !important;
-      font-size: 16px;
-      // height: 60px;
-      // line-height: 60px;
-      position: relative;
-      &::after{
-        transition: .3s;
-        content: '';
-        display: none;
-        width: 6px;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color:#0F9B8E;
-      }
-    }
-    .el-menu-item:hover{
-      background-color: #03719C !important;
-      // color:$nav-active-color;
-    }
-    .el-menu-item.is-active{
-      background-color: #03719C !important;
-      // color:$nav-active-color;
-      font-size: 18px;
-      &::after{
-        display: block;
-      }
-    }
-    .submenu-item{
-      background-color: #2a2d2c !important;
-    }
-   .el-submenu__title{
-      font-size: 16px;
-      i{
-        color: #fff;
-        font-size: 14px;
-      }
-    }
   }
   .xia-scrollbar{
     height: calc(100% - 50px);
@@ -319,5 +275,89 @@ export default {
         cursor: pointer;
       }
    }
+
+   /* 菜单栏 开始*/
+  // $main-gradient-color:linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  $main-gradient-color:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
+  .custom-menu-vertical{
+    // background-color: #fafafa;
+    border-right: solid 1px #343837;
+    width: 85%;
+    // margin: 0 auto;
+    margin-left: 17px;
+    background: none;
+    border-right: none;
+    &>.el-menu-item{
+      box-sizing: border-box;
+      height: 40px;
+      line-height: 40px;
+      background-color: transparent !important;
+      // border: 1px solid #f9f9f9;
+      border-radius: 12px;
+      color: $main-white !important;
+      font-size: 14px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    .el-menu-item:hover{
+      background:none !important;
+    }
+    .el-menu-item.is-active{
+      background-image: $main-gradient-color !important;
+      // border-color: transparent;
+      color: $main-white !important;
+      border: none;
+      &::after{
+        display: none;
+      }
+    }
+    .el-submenu__icon-arrow{
+      color: $main-white !important;
+    }
+    &>.el-submenu{
+      box-sizing: border-box;
+      min-height: 40px;
+      background-color: transparent !important;
+      // border-radius: 4px;
+      // border: 1px solid #f9f9f9;
+      color: $main-white !important;
+      font-size: 14px;
+      margin-bottom: 12px;
+      .el-menu-item{
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        background-color: transparent !important;
+        border-radius: 12px;
+        color: $main-white !important;
+        font-size: 14px;
+        margin-bottom: 12px;
+        text-align: left;
+        min-width: 189px;
+      }
+      &>.el-submenu__title{
+        color: $main-white !important;
+        height: 40px;
+        line-height: 40px;
+        // border-radius: 4px;
+        background-color: transparent !important;
+      }
+      .el-menu-item.is-active{
+        background-image: $main-gradient-color !important;
+        color: $main-white !important;
+        &::after{
+          display: none;
+        }
+      }
+    }
+    .el-menu{
+      border-radius: 0 0 4px 4px;
+    }
+  }
+  .custom-menu-vertical.collapsed{
+    margin-left:6px
+  }
+  /* 菜单栏 结束 */
 }
 </style>
