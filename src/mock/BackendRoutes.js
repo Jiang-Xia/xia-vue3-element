@@ -1,8 +1,13 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
+<<<<<<< HEAD
  * @LastEditTime: 2021-06-20 15:13:22
  * @LastEditors: 江夏
+=======
+ * @LastEditTime: 2021-07-01 11:51:38
+ * @LastEditors: 酱
+>>>>>>> 5ea87bcfefafa55e99e474955d353a6a1916389e
  * @Description: In User Settings Edit
  * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
  */
@@ -83,7 +88,17 @@ export const BackendRoutes = [
         props: true,
         component: '/charts/index',
         meta: {
-          activeMenu: '/charts'
+          title: '图表总览',
+          activeMenu: '/charts/index'
+        }
+      },
+      {
+        path: 'graph',
+        props: true,
+        component: '/charts/graph',
+        meta: {
+          title: '图表库',
+          activeMenu: '/charts/graph'
         }
       }
     ]
@@ -214,7 +229,7 @@ export const BackendRoutes = [
         component: '/configs/menu',
         meta: {
           title: '菜单管理',
-          activeMenu: '/configs'
+          activeMenu: '/configs/menu'
         }
       },
       {
@@ -223,7 +238,7 @@ export const BackendRoutes = [
         component: '/configs/user',
         meta: {
           title: '用户管理',
-          activeMenu: '/configs'
+          activeMenu: '/configs/user'
         }
       }
     ]

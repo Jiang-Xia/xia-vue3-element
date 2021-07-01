@@ -1,6 +1,7 @@
 <template>
   <div class="theme-container">
     <el-button type="primary" size="small" @click="drawer = !drawer">切换主题</el-button>
+    <el-button type="primary">按钮</el-button>
     <theme-picker class="mg-l-10" style="height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />
   </div>
 </template>

@@ -30,6 +30,12 @@ import BreadCrumb from '@/components/breadcrumb'
 app.component('SvgIcon', SvgIcon)
 app.component('BreadCrumb', BreadCrumb)
 
+/* 第三方库 */
+import echarts from 'echarts'
+/* echart 加载主题 https://echarts.apache.org/zh/theme-builder.html */
+import echartsTheme from '@/utils/echartsTheme.json'
+echarts.registerTheme('walden', echartsTheme)
+
 // import localforage from 'localforage/dist/localforage.js'
 // // 患者详情缓存数据库
 // const xiaSystemDataDb = localforage.createInstance({
@@ -49,5 +55,6 @@ globalProperties.devtools = false
 globalProperties.$getToken = getToken
 globalProperties.$axios = axios
 globalProperties.log = console.log
+globalProperties.$echarts = echarts
 export default app
 
