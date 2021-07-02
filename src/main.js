@@ -1,6 +1,6 @@
 /*
  * @Author: 江夏
- * @LastEditors: 江夏
+ * @LastEditors: 酱
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -19,6 +19,9 @@ import '@/assets/font/xia-icon/iconfont.css'
 const app = createApp(App)
 app.use(ElementPlus).use(store).use(router).mount('#app')
 
+/* 自定义指令 */
+import directives from '@/directives'
+app.use(directives)
 /*
   全局组件注册
 */

@@ -99,13 +99,14 @@ export default {
     height: 22px;
     line-height: 18px;
     font-size: 18px;
+    border-bottom: 1px solid $main-border-color;
   }
   .marker-site{
     height: 18px;
     width: 5px;
     margin-left: 5px;
     margin-right: 8px;
-    border-radius: 1px;
+    border-radius: 2px;
     background-color: $main-color;
   }
   .img-item {

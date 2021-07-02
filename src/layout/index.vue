@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-01 20:03:04
- * @LastEditTime: 2021-07-01 22:00:49
+ * @LastEditTime: 2021-07-02 16:27:24
  * @Description:
  * @FilePath: \xia-vue3-element\src\layout\index.vue
 -->
@@ -69,14 +69,21 @@
       <!-- 导航头开始 -->
       <el-header height="50px">
         <div class="fl center" style="height:100%">
-          <el-button class="fl" style="padding:4px;" :icon="!collapsed?'el-icon-s-fold':'el-icon-s-unfold'" size="mini" plain @click="collapsed=!collapsed" />
+          <span
+            class="fl collapsed-btn"
+            style="padding:4px;"
+            :class="!collapsed?'el-icon-s-fold':'el-icon-s-unfold'"
+            size="mini"
+            plain
+            @click="collapsed=!collapsed"
+          />
         </div>
         <Breadcrumb />
         <div class="user-wrap fr">
           <el-dropdown v-if="userInfo.truename" @command="commandHandle">
             <span class="el-dropdown-link">
-              <svg-icon icon-class="user-icon" class="user-icon" />
-              <span v-show="!isMobile">
+              <div class="fl user-img"><img src="@/assets/img/common/boy.png" alt="头像"></div>
+              <span v-show="!isMobile" class="username fr">
                 {{ userInfo.truename }}
                 <i class="el-icon-arrow-down el-icon--right" />
               </span>
@@ -253,6 +260,7 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
   }
   .el-header{
     background-color: $main-bgc;
+    // background-image: linear-gradient(15deg, #80d0c7 0%, #13547a 100%);
     margin-bottom: 2px;
     padding: 0 0.7rem;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
@@ -275,6 +283,13 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
     color: #fff;
     // color: #03719C;
   }
+  .collapsed-btn{
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .collapsed-btn:hover,.collapsed-btn:focus,.collapsed-btn:active{
+    color: $main-color;
+  }
   .user-wrap{
       height: 100%;
       // line-height: 50px;
@@ -296,6 +311,16 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
       .login{
         cursor: pointer;
       }
+   }
+  .user-img{
+    width: 32px;
+    margin-right: 4px;
+    img{
+      width: 100%;
+    }
+   }
+   .username{
+     margin-top: 9px;
    }
   .me-item-icon{
     display: inline-block;

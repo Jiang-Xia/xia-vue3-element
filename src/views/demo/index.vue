@@ -1,3 +1,11 @@
+<!--
+ * @Author: 酱
+ * @LastEditors: 酱
+ * @Date: 2021-07-02 09:38:08
+ * @LastEditTime: 2021-07-02 17:49:55
+ * @Description:
+ * @FilePath: \xia-vue3-element\src\views\demo\index.vue
+-->
 <template>
   <div class="demo-container">
     <el-tabs v-model="activeName" type="border-card">
@@ -13,13 +21,11 @@
       <el-tab-pane label="路由表" name="4">
         <RouterList />
       </el-tab-pane>
-      <el-tab-pane label="其他" name="5">
-        <Steps :active="active">
-          <Step title="步骤1" />
-          <Step title="步骤2" />
-          <Step title="步骤3" />
-        </Steps>
-        <el-button @click="onClick">点击</el-button>
+      <el-tab-pane label="自定义指令" name="5">
+        <div v-watermark class="cusrom-directive" />
+      </el-tab-pane>
+      <el-tab-pane label="其他" name="6">
+        6
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -65,5 +71,8 @@ export default {
 <style scoped lang="scss">
 .demo-container{
   // padding: 1.5rem;
+  .cusrom-directive{
+    padding: 50px;
+  }
 }
 </style>
