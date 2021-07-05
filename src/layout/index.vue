@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-01 20:03:04
- * @LastEditTime: 2021-07-02 16:27:24
+ * @LastEditTime: 2021-07-05 10:07:20
  * @Description:
  * @FilePath: \xia-vue3-element\src\layout\index.vue
 -->
@@ -358,6 +358,7 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
       // border-color: transparent;
       color: $main-white !important;
       border: none;
+      box-shadow: 0 0 4px $main-color;
       &::after{
         display: none;
       }

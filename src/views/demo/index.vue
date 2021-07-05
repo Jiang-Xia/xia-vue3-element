@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-02 17:49:55
+ * @LastEditTime: 2021-07-05 17:31:49
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\demo\index.vue
 -->
@@ -10,22 +10,22 @@
   <div class="demo-container">
     <el-tabs v-model="activeName" type="border-card">
       <el-tab-pane label="图片热区" name="1">
-        <ImageHotArea />
+        <ImageHotArea v-if="activeName==='1'" />
       </el-tab-pane>
       <el-tab-pane label="设置主题" name="2">
-        <Theme />
+        <Theme v-if="activeName==='2'" />
       </el-tab-pane>
       <el-tab-pane label="长列表" name="3">
-        <LongList />
+        <LongList v-if="activeName==='3'" />
       </el-tab-pane>
       <el-tab-pane label="路由表" name="4">
-        <RouterList />
+        <RouterList v-if="activeName==='4'" />
       </el-tab-pane>
       <el-tab-pane label="自定义指令" name="5">
-        <div v-watermark class="cusrom-directive" />
+        <Directive v-if="activeName==='5'" />
       </el-tab-pane>
-      <el-tab-pane label="其他" name="6">
-        6
+      <el-tab-pane label="其他" name="7">
+        7
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -36,20 +36,19 @@ import ImageHotArea from './components/image-hot-area'
 import Theme from './components/theme'
 import LongList from './components/long-list'
 import RouterList from './components/router-list'
-import Step from '@/components/step/GiStep'
-import Steps from '@/components/step/GiSteps'
+import Directive from './components/directive'
+
 export default {
   components: {
     ImageHotArea,
     Theme,
     LongList,
     RouterList,
-    Step,
-    Steps
+    Directive
   },
   setup() {
     return {
-      activeName: '3'
+      activeName: '5'
     }
   },
   data() {

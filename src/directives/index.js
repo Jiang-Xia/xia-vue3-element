@@ -2,10 +2,11 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 17:21:38
- * @LastEditTime: 2021-07-02 18:04:22
+ * @LastEditTime: 2021-07-05 11:06:38
  * @Description: 编写vue3插件
  * @FilePath: \xia-vue3-element\src\directives\index.js
  */
+import * as directives from './directive'
 export default {
   /**
    * @description: 插件install方法
@@ -17,27 +18,12 @@ export default {
     // Plugin code goes here
     app.provide('customData', { aaa: 'aaaa' })
 
-    app.directive('watermark', {
-      beforeMount(el, binding, vnode, oldVnode) {
-      },
-      mounted(el, binding, vnode, oldVnode) {
-        // console.log(el, binding, vnode, oldVnode)
-        el.innerText = '<p>自定义指令</p>'
-      },
-      beforeUpdate(el, binding, vnode, oldVnode) {
-
-      },
-      updated(el, binding, vnode, oldVnode) {
-
-      },
-      beforeUnmount(el, binding, vnode, oldVnode) {
-
-      },
-      unmounted(el, binding, vnode, oldVnode) {
-
+    // 自定注册自定义指令
+    for (const key in directives) {
+      if (key !== 'default') {
+        app.directive(key, directives[key])
       }
-    })
-
+    }
     app.mixin({
       created() {
         // some logic ...

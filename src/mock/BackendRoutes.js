@@ -1,7 +1,7 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
- * @LastEditTime: 2021-07-01 22:07:19
+ * @LastEditTime: 2021-07-05 17:20:26
  * @LastEditors: 酱
  * @Description: In User Settings Edit
  * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
@@ -63,6 +63,27 @@ export const BackendRoutes = [
         meta: {
           activeMenu: '/demo/step',
           title: '步骤'
+        }
+      }
+    ]
+  },
+  {
+    path: '/component',
+    name: 'Component',
+    component: '@/layout/index',
+    redirect: { path: '/component/index' },
+    icon: 'xia xia-tag',
+    meta: {
+      title: '组件',
+      roles: [1, 2]
+    },
+    children: [
+      {
+        path: 'index',
+        component: '/component/index',
+        meta: {
+          activeMenu: '/component',
+          title: '自定义组件'
         }
       }
     ]
