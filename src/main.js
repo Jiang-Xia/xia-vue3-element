@@ -60,4 +60,3 @@ globalProperties.$axios = axios
 globalProperties.log = console.log
 globalProperties.$echarts = echarts
 export default app
-

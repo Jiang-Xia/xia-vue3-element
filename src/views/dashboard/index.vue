@@ -5,6 +5,7 @@
       <img
         v-for="(item,index) in module.imgList"
         :key="index"
+        v-lazyload
         class="img-item"
         :src="item"
         alt=""
@@ -70,6 +71,7 @@ const moduleData = [
 ]
 import { onMounted } from 'vue'
 export default {
+  name: 'Dashboard',
   setup() {
     onMounted(() => {
       console.log('info')
@@ -113,7 +115,7 @@ export default {
     display: inline-block;
     border-radius: 15px;
     height: 280px;
-    width: 380px;
+    // width: 380px;
     margin-right: 12px;
     margin-bottom: 12px;
     transition: transform .5s;

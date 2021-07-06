@@ -2,11 +2,12 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-05 10:17:39
- * @LastEditTime: 2021-07-05 11:59:01
+ * @LastEditTime: 2021-07-06 11:48:07
  * @Description:
  * @FilePath: \xia-vue3-element\src\directives\directive.js
  */
 import { ElMessage } from 'element-plus'
+import LoadingImg from '@/assets/img/common/img-loading.gif'
 export const watermark = {
   beforeMount(el, binding, vnode, oldVnode) {
   },
@@ -73,5 +74,41 @@ export const copy = {
   // 指令与元素解绑的时候，移除事件绑定
   unmounted(el) {
     el.removeEventListener('click', el.handler)
+  }
+}
+
+// 图片懒加载
+export const lazyload = {
+  beforeMount(el, binding, vnode, oldVnode) {
+  },
+  mounted(el, binding) {
+    const src = el.src
+    el.setAttribute('src', LoadingImg)
+    const wHeight = window.innerHeight
+    const { top } = el.getBoundingClientRect()
+    // 判断在可视范围内
+    if (top <= wHeight) {
+      el.setAttribute('src', src)
+      el.setAttribute('loaded', 1)
+    } else {
+      el.setAttribute('src', LoadingImg)
+      el.setAttribute('data-src', src)
+    }
+    el.addEventListener('load', el.loadedHandler)
+
+    el.handler = () => {
+      const loaded = el.getAttribute('loaded')
+      if (loaded !== '1') {
+        // 已经实现加载是会loading，即onload事件完成之后src才会替换为data-src的内容
+        const dataSRc = el.getAttribute('data-src')
+        el.setAttribute('src', dataSRc)
+      }
+    }
+    window.addEventListener('scroll', el.handler, true)
+  },
+  beforeUnmount(el, binding, vnode, oldVnode) {},
+  // 指令与元素解绑的时候，移除事件绑定
+  unmounted(el) {
+    window.removeEventListener('scroll', el.handler)
   }
 }

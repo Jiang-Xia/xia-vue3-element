@@ -83,9 +83,10 @@ module.exports = {
       'after': true
     }],
     'handle-callback-err': [2, '^(err|error)$'],
-    'indent': [2, 2, {
-      'SwitchCase': 1
-    }],
+    // 'indent': [2, 2, {
+    //   'SwitchCase': 1
+    // }],
+    'indent': 'off',
     'jsx-quotes': [2, 'prefer-single'],
     'key-spacing': [2, {
       'beforeColon': false,
@@ -212,7 +213,9 @@ module.exports = {
     'spaced-comment': [2, 'always', {
       'markers': ['global', 'globals', 'eslint', 'eslint-disable', '*package', '!', ',']
     }],
-    'template-curly-spacing': [2, 'never'],
+    // 校验模板字符串的空格 ${}
+    // 'template-curly-spacing': [2, 'never'],
+    'template-curly-spacing': 'off',
     'use-isnan': 2,
     'valid-typeof': 2,
     'wrap-iife': [2, 'any'],
