@@ -1,3 +1,11 @@
+<!--
+ * @Author: 酱
+ * @LastEditors: 酱
+ * @Date: 2021-03-24 09:43:12
+ * @LastEditTime: 2021-07-06 15:44:47
+ * @Description:
+ * @FilePath: \xia-vue3-element\src\views\login\index-transfer.vue
+-->
 <template>
   <div class="login-component-container">
     <component
@@ -14,10 +22,13 @@
 */
 import DialogLogin from './index-dialog'
 import PageLogin from './index-default'
+import FrostedClass from './frosted-glass.vue'
+
 export default {
   components: {
     DialogLogin,
-    PageLogin
+    PageLogin,
+    FrostedClass
   },
   data() {
     return {
@@ -29,7 +40,8 @@ export default {
       const code = this.code
       const obj = {
         demo_000: 'DialogLogin',
-        demo_111: 'PageLogin'
+        // demo_111: 'PageLogin'
+        demo_111: 'FrostedClass'
       }
       return obj[code]
     }

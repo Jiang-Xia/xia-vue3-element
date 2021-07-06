@@ -24,6 +24,9 @@ $main-gradient-color:linear-gradient(90deg, $minor-color 0%, $main-color 100%);
 $main-border-color:#e7e7e7;//浅
 $minor-border-color:#d8d8d8;//深
 
+// 布局圆角
+$border-radius:8px;
+
 .a{
     color: #364f6b;
     color: #3fc1c9;

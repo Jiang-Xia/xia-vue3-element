@@ -33,7 +33,6 @@ export function filterAsyncRoutes(routes) {
     */
     const tmp = {
       path: route.path,
-      /* eslint-disable */
       /* 
       * https://webpack.docschina.org/api/module-methods/#dynamic-expressions-in-import
       * @/views 意思就是告诉 webpack全部打包views文件目录下的所有文件 
@@ -46,8 +45,6 @@ export function filterAsyncRoutes(routes) {
       // 路由分块打包的特殊注释，不写此注释vue-router会抛出警告
       /* webpackChunkName: "async" */
       // component: component.includes('layout') ?
-      // Layout : require(/* webpackChunkName: "async-component" */`@/views${component}`),
-     /* eslint-disable line */
       redirect: route.redirect || undefined,
       hidden: !!route.hidden,
       name: route.name,

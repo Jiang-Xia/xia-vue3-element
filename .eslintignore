@@ -2,3 +2,4 @@ build/*.js
 public
 home.rar
 home/*
+src/store/modules/permission.js

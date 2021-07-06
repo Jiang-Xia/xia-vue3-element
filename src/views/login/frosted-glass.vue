@@ -1,5 +1,5 @@
 <template>
-  <div class="login-default-container">
+  <div class="login-frosted-glass-container">
     <section class="login-content center">
       <el-form
         ref="loginForm"
@@ -12,7 +12,7 @@
           <el-input
             v-model="loginForm.username"
             type="username"
-            auto-complete="on"
+            auto-complete="off"
           />
         </el-form-item>
         <el-form-item prop="password">
@@ -20,7 +20,7 @@
           <el-input
             v-model="loginForm.password"
             type="password"
-            auto-complete="on"
+            auto-complete="off"
             @keydown.enter="tologinForm('loginForm')"
           />
         </el-form-item>
@@ -45,9 +45,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~@/styles/scss/_mixins";
-.login-default-container{
+.login-frosted-glass-container{
   height: 100%;
   width: 100%;
   background: url("~@/assets/img/background/abstract.jpg") no-repeat;
@@ -55,6 +55,9 @@ export default {
   .el-input{
     width: 90%;
     line-height: 40px;
+  }
+  .el-input__inner{
+    // background-color: transparent;
   }
   .el-form-item__content{
     display: flex;
@@ -82,7 +85,9 @@ export default {
     z-index: 1;
     .loginForm {
       position: relative;
-      background-color: #fff;
+      // background-color: #fff;
+      background-color: rgba($color: #fff, $alpha: 0.2);
+      backdrop-filter: blur(10px);
       border-radius: .8rem;
       box-shadow: 0 2px 15px rgba($color: #000000, $alpha: 0.3);
       width: 29rem;

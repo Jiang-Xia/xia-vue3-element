@@ -2,14 +2,19 @@
   <div class="dashboard-container">
     <section v-for="(module,moduleIndex) in moduleData" :key="moduleIndex" class="section-container">
       <p class="module-title"><span class="marker-site" /> {{ module.name }}</p>
-      <img
+      <div
         v-for="(item,index) in module.imgList"
         :key="index"
-        v-lazyload
-        class="img-item"
-        :src="item"
-        alt=""
+        class="item-wrap"
       >
+        <img
+          v-lazyload
+          class="img-item"
+          :src="item"
+          alt=""
+        >
+      </div>
+
     </section>
     <!--
     <section>
@@ -90,39 +95,66 @@ export default {
 </script>
 <style scoped lang="scss">
 .dashboard-container {
-  background-color: $main-white;
-  padding: 1rem;
+  // padding: 1rem;
   height: 100%;
+  .section-container{
+    // background-image: linear-gradient(to right, #c2d0e2 0%, #c3cfe2 100%);
+    background-color: rgba($color: #f3f3f3, $alpha: 1);
+    border-radius: 15px;
+    margin-bottom: 16px;
+  }
   .module-title{
     margin-bottom: .8rem;
     font-weight: 600;
     display: flex;
     align-items: center;
-    height: 22px;
-    line-height: 18px;
+    height: 44px;
+    line-height: 44px;
     font-size: 18px;
-    border-bottom: 1px solid $main-border-color;
+    border-bottom: 1px dashed $minor-border-color;
   }
   .marker-site{
     height: 18px;
     width: 5px;
-    margin-left: 5px;
+    margin-left: 14px;
     margin-right: 8px;
     border-radius: 2px;
     background-color: $main-color;
   }
-  .img-item {
+  .item-wrap{
+    padding: 12px 16px;
     display: inline-block;
     border-radius: 15px;
     height: 280px;
     // width: 380px;
-    margin-right: 12px;
-    margin-bottom: 12px;
+    margin-left: 24px;
+    margin-bottom: 20px;
+    transition: transform .5s;
+    box-shadow: 0 6px 15px 0 rgba($color: #000000, $alpha: .3);
+    backdrop-filter: blur(30px);
+  }
+  .img-item{
+    height: 100%;
+    border-radius: 15px;
     transition: transform .5s;
   }
   .img-item:hover{
-      box-shadow: 0 0 12px 0 rgba($color: #000000, $alpha: .3);
-      transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05);
+  }
+
+  @keyframes Shake {
+    0%{
+      transform: rotateZ(3deg);
+    }
+    50%{
+      transform: rotateZ(3deg);
+    }
+    50%{
+      transform: rotateZ(0deg);
+    }
+    100%{
+      transform: rotateZ(-3deg);
+    }
   }
 }
 </style>
