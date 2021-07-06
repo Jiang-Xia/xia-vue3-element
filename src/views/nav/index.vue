@@ -57,7 +57,6 @@ export default {
 </script>
 <style scoped lang="scss">
 .navs-container{
-  background-color: #fff;
   padding: 1rem .5rem;
   .xia-logo{
     height: 150px;

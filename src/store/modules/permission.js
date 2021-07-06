@@ -53,7 +53,7 @@ export function filterAsyncRoutes(routes) {
       },
       children: route.children || undefined
     }
-    tmp.meta.title = route.meta.title
+    tmp.title = route.title
     if (route.icon) {
       tmp.meta.icon = route.icon
     }

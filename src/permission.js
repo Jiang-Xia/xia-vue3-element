@@ -1,3 +1,11 @@
+/*
+ * @Author: 酱
+ * @LastEditors: 酱
+ * @Date: 2021-06-27 20:17:00
+ * @LastEditTime: 2021-07-06 22:11:53
+ * @Description:
+ * @FilePath: \xia-vue3-element\src\permission.js
+ */
 import router from '@/router'
 import store from '@/store'
 // import { Message } from 'element-plus'
@@ -12,7 +20,7 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
   const hasToken = getToken()
   // console.log(1111, to.path)
-  document.title = getPageTitle(to.meta.title)
+  document.title = getPageTitle(to.title)
   if (!hasToken) {
     store.dispatch('user/resetToken')
     // 未登录

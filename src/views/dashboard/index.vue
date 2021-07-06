@@ -126,12 +126,14 @@ export default {
     display: inline-block;
     border-radius: 15px;
     height: 280px;
+    min-width: 10rem;
     // width: 380px;
     margin-left: 24px;
     margin-bottom: 20px;
     transition: transform .5s;
     box-shadow: 0 6px 15px 0 rgba($color: #000000, $alpha: .3);
     backdrop-filter: blur(30px);
+    text-align: center;
   }
   .img-item{
     height: 100%;

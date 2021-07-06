@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-01 20:03:04
- * @LastEditTime: 2021-07-06 15:13:57
+ * @LastEditTime: 2021-07-06 22:30:44
  * @Description:
  * @FilePath: \xia-vue3-element\src\layout\index.vue
 -->
@@ -35,7 +35,7 @@
               <span
                 v-show="!collapsed"
                 style="margin-left:0.5rem;"
-              >{{ item.meta.title }}</span>
+              >{{ item.title }}</span>
             </el-menu-item>
             <el-submenu
               v-else
@@ -48,7 +48,7 @@
                 <span
                   v-show="!collapsed"
                   style="margin-left:0.5rem;"
-                >{{ item.meta.title }}</span>
+                >{{ item.title }}</span>
               </template>
               <el-menu-item
                 v-for="(item2) in item.children"
@@ -57,7 +57,7 @@
                 :index="item.path+'/'+item2.path"
                 :data-index_="item.path+'/'+item2.path"
               >
-                <span>{{ item2.meta.title }}</span>
+                <span>{{ item2.title }}</span>
               </el-menu-item>
             </el-submenu>
           </template>
@@ -104,18 +104,22 @@
       </el-header>
       <!-- 导航头结束 -->
 
+      <!-- app主要内容开始 -->
       <el-main>
-        <router-view v-slot="{ Component }">
-          <transition
-            name="fade-transform"
-            mode="out-in"
-          >
-            <component
-              :is="Component"
-            />
-          </transition>
-        </router-view>
+        <div class="xia-app__content">
+          <router-view v-slot="{ Component }">
+            <transition
+              name="fade-transform"
+              mode="out-in"
+            >
+              <component
+                :is="Component"
+              />
+            </transition>
+          </router-view>
+        </div>
       </el-main>
+      <!-- app主要内容结束 -->
     </el-container>
     <Logout ref="Logout" />
   </el-container>
@@ -188,8 +192,16 @@ export default {
       mobileCallBack()
       window.addEventListener('resize', mobileCallBack)
     })
+    // 不被隐藏的渲染
+    const permission_routes = store.getters.permission_routes.filter(v => {
+      if (v.children && v.children.length) {
+        v.children = v.children.filter(v2 => !v2.hidden)
+      }
+      return !v.hidden
+    })
+    // console.log(permission_routes)
     return {
-      permission_routes: store.getters.permission_routes.filter(v => !v.hidden),
+      permission_routes,
       userInfo: userInfo,
       globalConfigs: store.getters.globalConfigs,
       defaultActive,
@@ -268,6 +280,12 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
   .el-main{
     // padding: 0;
     padding: 12px;
+  }
+  .xia-app__content{
+    height: 100%;
+    background-color: $main-white;
+    // 后代元素有背景色的话会遮住圆角
+    border-radius: $border-radius;
   }
   .xia-scrollbar{
     height: calc(100% - 50px);

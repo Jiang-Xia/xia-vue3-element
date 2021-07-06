@@ -80,7 +80,7 @@ export default {
 <style scoped lang="scss">
 .step-container{
   padding: 0.5rem;
-  background-color: #fff;
+  // background-color: #fff;
   .section-container{
 
   }

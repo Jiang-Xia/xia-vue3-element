@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-05 17:31:49
+ * @LastEditTime: 2021-07-06 21:53:28
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\demo\index.vue
 -->
@@ -69,7 +69,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .demo-container{
-  // padding: 1.5rem;
+  padding: 1rem;
   .cusrom-directive{
     padding: 50px;
   }

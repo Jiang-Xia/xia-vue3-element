@@ -1,7 +1,7 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
- * @LastEditTime: 2021-07-06 13:47:47
+ * @LastEditTime: 2021-07-06 22:35:14
  * @LastEditors: 酱
  * @Description: In User Settings Edit
  * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
@@ -14,8 +14,8 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/dashboard/index' },
     icon: 'xia xia-home',
+    title: '首页',
     meta: {
-      title: '首页',
       roles: [1, 2]
     },
     children: [
@@ -23,9 +23,9 @@ export const BackendRoutes = [
         path: 'index',
         name: 'DashboardResultQuery',
         component: '/dashboard/index',
+        title: '首页',
         meta: {
-          activeMenu: '/dashboard',
-          title: '首页'
+          activeMenu: '/dashboard'
         }
       }
     ]
@@ -36,33 +36,33 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/demo/index' },
     icon: 'xia xia-demo',
+    title: '测试',
     meta: {
-      title: '测试',
       roles: [1, 2]
     },
     children: [
       {
         path: 'theme',
         component: '/demo/theme',
+        title: '换肤',
         meta: {
-          activeMenu: '/demo/theme',
-          title: '换肤'
+          activeMenu: '/demo/theme'
         }
       },
       {
         path: 'index',
         component: '/demo/index',
+        title: 'demo',
         meta: {
-          activeMenu: '/demo/index',
-          title: 'demo'
+          activeMenu: '/demo/index'
         }
       },
       {
         path: 'step',
         component: '/demo/step/index',
+        title: '步骤',
         meta: {
-          activeMenu: '/demo/step',
-          title: '步骤'
+          activeMenu: '/demo/step'
         }
       }
     ]
@@ -73,17 +73,17 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/component/index' },
     icon: 'xia xia-tag',
+    title: '组件',
     meta: {
-      title: '组件',
       roles: [1, 2]
     },
     children: [
       {
         path: 'index',
         component: '/component/index',
+        title: '自定义组件',
         meta: {
-          activeMenu: '/component',
-          title: '自定义组件'
+          activeMenu: '/component'
         }
       }
     ]
@@ -94,8 +94,8 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/charts/index' },
     icon: 'xia xia-areachart',
+    title: '图表',
     meta: {
-      title: '图表',
       roles: [1, 2]
     },
     children: [
@@ -103,8 +103,8 @@ export const BackendRoutes = [
         path: 'index',
         props: true,
         component: '/charts/index',
+        title: '图表总览',
         meta: {
-          title: '图表总览',
           activeMenu: '/charts/index'
         }
       },
@@ -112,8 +112,8 @@ export const BackendRoutes = [
         path: 'graph',
         props: true,
         component: '/charts/graph',
+        title: '图表库',
         meta: {
-          title: '图表库',
           activeMenu: '/charts/graph'
         }
       }
@@ -125,25 +125,25 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/form/index' },
     icon: 'xia xia-form',
+    title: '表单',
     meta: {
-      title: '表单',
       roles: [1, 2]
     },
     children: [
       {
         path: 'index',
         component: '/form/drag-control',
+        title: '表单生成器',
         meta: {
-          activeMenu: '/form/index',
-          title: '表单生成器'
+          activeMenu: '/form/index'
         }
       },
       {
         path: 'question',
         component: '/form/question-type',
+        title: '题型生成器',
         meta: {
-          activeMenu: '/form/question',
-          title: '题型生成器'
+          activeMenu: '/form/question'
         }
       }
     ]
@@ -154,33 +154,33 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/icon/index' },
     icon: 'xia xia-smile',
+    title: '图标',
     meta: {
-      title: '图标',
       roles: [1, 2]
     },
     children: [
       {
         path: 'index',
         component: '/icon/index',
+        title: 'custom',
         meta: {
-          activeMenu: '/icon/index',
-          title: 'custom'
+          activeMenu: '/icon/index'
         }
       },
       {
         path: 'svg',
         component: '/icon/svg',
+        title: 'SVG',
         meta: {
-          activeMenu: '/icon/svg',
-          title: 'SVG'
+          activeMenu: '/icon/svg'
         }
       },
       {
         path: 'fa',
         component: '/icon/fa',
+        title: 'Font Awesome',
         meta: {
-          activeMenu: '/icon/fa',
-          title: 'Font Awesome'
+          activeMenu: '/icon/fa'
         }
       }
     ]
@@ -191,17 +191,17 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/nav/index' },
     icon: 'xia xia-nav',
+    title: '导航',
     meta: {
-      title: '导航',
       roles: [1, 2]
     },
     children: [
       {
         path: 'index',
         component: '/nav/index',
+        title: '我的导航',
         meta: {
-          activeMenu: '/nav',
-          title: ''
+          activeMenu: '/nav'
         }
       }
     ]
@@ -212,8 +212,8 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/tools/my' },
     icon: 'xia xia-tool',
+    title: '工具',
     meta: {
-      title: '工具',
       roles: [1, 2]
     },
     children: [
@@ -221,8 +221,8 @@ export const BackendRoutes = [
         path: 'my',
         props: true,
         component: '/tools/my',
+        title: '我的工具',
         meta: {
-          title: '我的工具',
           activeMenu: '/tools'
         }
       }
@@ -234,8 +234,8 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/configs/menu' },
     icon: 'xia xia-setting',
+    title: '配置',
     meta: {
-      title: '配置',
       roles: [1, 2]
     },
     children: [
@@ -243,17 +243,18 @@ export const BackendRoutes = [
         path: 'menu',
         props: true,
         component: '/configs/menu',
+        title: '菜单管理',
         meta: {
-          title: '菜单管理',
           activeMenu: '/configs/menu'
         }
       },
       {
         path: 'user',
         props: true,
+        // hidden: true,
         component: '/configs/user',
+        title: '用户管理',
         meta: {
-          title: '用户管理',
           activeMenu: '/configs/user'
         }
       }
@@ -265,8 +266,8 @@ export const BackendRoutes = [
     component: '@/layout/index',
     redirect: { path: '/profile/index' },
     icon: 'xia xia-profile ',
+    title: '个人中心',
     meta: {
-      title: '个人中心',
       roles: [1, 2]
     },
     children: [
@@ -274,6 +275,7 @@ export const BackendRoutes = [
         path: 'index',
         props: true,
         component: '/profile/index',
+        title: '个人中心',
         meta: {
           activeMenu: '/profile'
         }

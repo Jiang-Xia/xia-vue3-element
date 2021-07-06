@@ -5,26 +5,50 @@
 <template>
   <div class="configs-container">
     <section class="configs-content">
-      <!-- :tree-props="{children: 'children', hasChildren: 'hasChildren'}" -->
-      <!-- row-key="id" -->
       <el-table
         :data="tableData"
         style="width: 100%;margin-bottom: 20px;"
+        :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+        row-key="path"
         border
-        default-expand-all
       >
         <el-table-column
           prop="name"
           label="name"
+          width="auto"
         />
+
+        <el-table-column
+          label="隐藏"
+          width="50px"
+        >
+          <template #default="props">
+            {{ props.row.hidden?'是':'否' }}
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          label="图标"
+          width="50px"
+        >
+          <template #default="props">
+            <span :class="props.row.icon" />
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          label="标题"
+        >
+          <template #default="props">
+            {{ props.row.title }}
+          </template>
+        </el-table-column>
+
         <el-table-column
           prop="path"
           label="路径"
         />
-        <el-table-column
-          prop="hidden"
-          label="是否隐藏"
-        />
+
         <el-table-column
           prop="component"
           label="vue文件路径"
@@ -33,23 +57,7 @@
           label="重定向"
         >
           <template #default="props">
-            <!-- {{ props.row.redirect.path }} -->
-          </template>
-        </el-table-column>
-
-        <el-table-column
-          label="标题"
-        >
-          <template #default="props">
-            <!-- {{ props.row.meta.title }} -->
-          </template>
-        </el-table-column>
-
-        <el-table-column
-          label="图标"
-        >
-          <template #default="props">
-            <!-- <span :class="props.row.icon" /> -->
+            {{ props.row.redirect?props.row.redirect.path:'' }}
           </template>
         </el-table-column>
 
@@ -85,6 +93,9 @@ export default {
     getUserRoutes().then(res => {
       console.log(res.data.routes)
       this.tableData = res.data.routes.map(v => {
+        // if (v.children && v.children.length) {
+        //   v.hasChildren = true
+        // }
         return v
       })
     })
