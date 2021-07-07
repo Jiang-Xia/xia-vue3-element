@@ -1,7 +1,7 @@
 /*
  * @Author: 江夏
  * @Date: 2021-06-11 16:55:21
- * @LastEditTime: 2021-07-06 22:35:14
+ * @LastEditTime: 2021-07-07 09:37:58
  * @LastEditors: 酱
  * @Description: In User Settings Edit
  * @FilePath: \xia-vue3-element\src\mock\BackendRoutes.js
@@ -251,7 +251,7 @@ export const BackendRoutes = [
       {
         path: 'user',
         props: true,
-        // hidden: true,
+        hidden: true,
         component: '/configs/user',
         title: '用户管理',
         meta: {

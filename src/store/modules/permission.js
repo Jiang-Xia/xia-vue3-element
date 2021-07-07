@@ -55,7 +55,7 @@ export function filterAsyncRoutes(routes) {
     }
     tmp.title = route.title
     if (route.icon) {
-      tmp.meta.icon = route.icon
+      tmp.icon = route.icon
     }
     if (tmp.children) {
       if (tmp.children.length) {

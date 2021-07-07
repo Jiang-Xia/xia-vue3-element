@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-01 20:03:04
- * @LastEditTime: 2021-07-06 22:30:44
+ * @LastEditTime: 2021-07-07 10:16:34
  * @Description:
  * @FilePath: \xia-vue3-element\src\layout\index.vue
 -->
@@ -25,13 +25,13 @@
         >
           <template v-for="(item) in permission_routes">
             <el-menu-item
-              v-if="item.children.length===1"
+              v-if="!item.children||item.children.length===1"
               :key="item.path"
               :data-index_="item.path"
               class="me-item"
               :index="item.path"
             >
-              <p class="me-item-icon" :class="item.meta.icon" />
+              <p class="me-item-icon" :class="item.icon" />
               <span
                 v-show="!collapsed"
                 style="margin-left:0.5rem;"
@@ -44,7 +44,7 @@
               popper-class="xia-submenu__popper"
             >
               <template #title>
-                <p class="me-item-icon" :class="item.meta.icon" />
+                <p class="me-item-icon" :class="item.icon" />
                 <span
                   v-show="!collapsed"
                   style="margin-left:0.5rem;"
@@ -160,7 +160,8 @@ export default {
     // 选中高亮
     const defaultActive = computed(() => {
       // console.log(route.meta)
-      return route.meta.activeMenu
+      // return route.meta.activeMenu
+      return route.path
     })
     const key = computed(() => {
       return route.path
@@ -193,11 +194,27 @@ export default {
       window.addEventListener('resize', mobileCallBack)
     })
     // 不被隐藏的渲染
-    const permission_routes = store.getters.permission_routes.filter(v => {
+    let permission_routes = store.getters.permission_routes.filter(v => {
       if (v.children && v.children.length) {
         v.children = v.children.filter(v2 => !v2.hidden)
       }
       return !v.hidden
+    })
+    // console.log(permission_routes)
+    permission_routes = permission_routes.map(v => {
+      let obj = v
+      // 只有一个子路由时，不渲染submenu并且第一个子路由信息赋值到父级路由
+      if (v.children && v.children.length === 1) {
+        const cItem = v.children[0]
+        const cOnbj = {
+          // 把子路由路径和父级路径结合一起
+          path: obj.path + '/' + cItem.path,
+          title: cItem.title,
+          meta: { ...cItem.meta }
+        }
+        obj = { ...obj, ...cOnbj }
+      }
+      return obj
     })
     // console.log(permission_routes)
     return {

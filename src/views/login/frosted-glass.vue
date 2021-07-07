@@ -86,7 +86,7 @@ export default {
     .loginForm {
       position: relative;
       // background-color: #fff;
-      background-color: rgba($color: #fff, $alpha: 0.2);
+      background-color: rgba($color: #fff, $alpha: 0.5);
       backdrop-filter: blur(10px);
       border-radius: .8rem;
       box-shadow: 0 2px 15px rgba($color: #000000, $alpha: 0.3);

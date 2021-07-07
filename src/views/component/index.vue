@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-06 17:36:18
+ * @LastEditTime: 2021-07-07 17:38:46
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\component\index.vue
 -->
@@ -17,14 +17,35 @@
       <DragSelect />
     </el-card>
 
+    <el-card class="mg-b-10">
+      <template #header>
+        <div class="card-header">
+          单选按钮（可取消）
+        </div>
+      </template>
+      <CancelRadio />
+    </el-card>
+
+    <el-card class="mg-b-10">
+      <template #header>
+        <div class="card-header">
+          大数据表格优化（虚拟列表）
+        </div>
+      </template>
+      <VirtualList />
+    </el-card>
   </div>
 </template>
 
 <script>
 import DragSelect from './components/drag-select'
+import CancelRadio from './components/cancel-radio'
+import VirtualList from './components/virtual-list.vue'
 export default {
   components: {
-    DragSelect
+    DragSelect,
+    CancelRadio,
+    VirtualList
   },
   setup() {
     return {

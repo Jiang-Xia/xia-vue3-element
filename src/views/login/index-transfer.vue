@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-03-24 09:43:12
- * @LastEditTime: 2021-07-06 15:44:47
+ * @LastEditTime: 2021-07-07 17:15:28
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\login\index-transfer.vue
 -->
@@ -22,13 +22,15 @@
 */
 import DialogLogin from './index-dialog'
 import PageLogin from './index-default'
-import FrostedClass from './frosted-glass.vue'
+import FrostedClass from './frosted-glass'
+import CustomLogin from './custom-login.vue'
 
 export default {
   components: {
     DialogLogin,
     PageLogin,
-    FrostedClass
+    FrostedClass,
+    CustomLogin
   },
   data() {
     return {
