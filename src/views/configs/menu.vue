@@ -1,7 +1,12 @@
 <!--
- * @Author: 江夏
+ * @Author: 酱
  * @LastEditors: 酱
+ * @Date: 2021-07-07 09:14:11
+ * @LastEditTime: 2021-07-07 09:14:46
+ * @Description:
+ * @FilePath: \xia-vue3-element\src\views\configs\menu.vue
 -->
+
 <template>
   <div class="configs-container">
     <section class="configs-content">
