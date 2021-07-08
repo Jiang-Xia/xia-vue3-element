@@ -1,3 +1,11 @@
+<!--
+ * @Author: 酱
+ * @LastEditors: 酱
+ * @Date: 2021-07-02 09:38:08
+ * @LastEditTime: 2021-07-08 15:20:19
+ * @Description:
+ * @FilePath: \xia-vue3-element\src\components\scroll-view\index.vue
+-->
 <template>
   <div ref="listView" class="list-view" @scroll="handleScroll($event)">
     <div class="list-view-phantom" :style="{ height: listData.length * itemHeight + 'px' }" />
@@ -16,10 +24,6 @@
 </template>
 
 <script>
-const listData = []
-for (let i = 0; i < 10000; i++) {
-  listData.push({ value: i })
-}
 export default {
   props: {
     // 列表ite的高度，不然计算不了
@@ -29,7 +33,7 @@ export default {
     },
     // 列表总数据
     listData: {
-      default: () => listData,
+      default: () => [],
       type: Array
     }
   },
@@ -72,7 +76,7 @@ export default {
     position: relative;
     // border: 1px solid #9b9b9b;
     border-radius: 2px;
-    box-shadow: 0 0 5px rgba($color: #000000, $alpha: .2);
+    // box-shadow: 0 0 5px rgba($color: #000000, $alpha: .2);
     .list-view-phantom {
         position: absolute;
         left: 0;
@@ -91,7 +95,7 @@ export default {
         padding: 0 3px;
         margin: 8px 0;
         border-radius: 3px;
-        box-shadow: 0 0 5px rgba($color: #000000, $alpha: .2);
+        // box-shadow: 0 0 5px rgba($color: #000000, $alpha: .2);
         color: #666;
         height: 40px;
         line-height: 40px;

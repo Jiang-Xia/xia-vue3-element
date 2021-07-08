@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-06 21:53:28
+ * @LastEditTime: 2021-07-08 15:10:34
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\demo\index.vue
 -->
@@ -14,9 +14,6 @@
       </el-tab-pane>
       <el-tab-pane label="设置主题" name="2">
         <Theme v-if="activeName==='2'" />
-      </el-tab-pane>
-      <el-tab-pane label="长列表" name="3">
-        <LongList v-if="activeName==='3'" />
       </el-tab-pane>
       <el-tab-pane label="路由表" name="4">
         <RouterList v-if="activeName==='4'" />
@@ -34,7 +31,6 @@
 <script>
 import ImageHotArea from './components/image-hot-area'
 import Theme from './components/theme'
-import LongList from './components/long-list'
 import RouterList from './components/router-list'
 import Directive from './components/directive'
 
@@ -42,7 +38,6 @@ export default {
   components: {
     ImageHotArea,
     Theme,
-    LongList,
     RouterList,
     Directive
   },
