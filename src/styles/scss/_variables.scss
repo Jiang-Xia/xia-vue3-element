@@ -11,8 +11,9 @@ $minor-text-color:#9b9b9b;
 $placeholder-text-color:#c0c4cc;
 
 $main-white:#ffffff;
-// 导航高亮颜色
-$nav-active-color:#ff7e79;
+// 导航背景和高亮颜色
+$menu-gradient-bgc:linear-gradient(to top, #30cfd0 0%, #330867 100%);
+$menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
 
 //bgc
 $main-bgc:#f9f9f9;
@@ -34,11 +35,7 @@ $border-radius:8px;
     color: #fc5185;
 }
 $main-white:#ffffff;
-// 导航高亮颜色
-$nav-active-color:#FF7E79;
 
-//bgc
-$main-bgc:#f9f9f9;
 
 /* 渐变色 */
 // $main-gradient-color

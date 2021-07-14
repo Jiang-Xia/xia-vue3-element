@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-08 15:42:38
+ * @LastEditTime: 2021-07-14 16:47:48
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\component\custom\index.vue
 -->
@@ -44,7 +44,7 @@ export default {
   background-color: #fff;
   border-radius: $border-radius;
   .el-card{
-    // width: 70%;
+    width: 88%;
   }
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-08 15:09:38
- * @LastEditTime: 2021-07-08 17:00:27
+ * @LastEditTime: 2021-07-14 17:44:11
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\component\custom\components\long-list.vue
 -->
@@ -12,14 +12,18 @@
       随机人口卡片信息
     </div>
     <ScrollView :list-data="listData">
-      <template #listItem="slotProps" :itemHeight="250">
+      <template #listItem="slotProps" :itemHeight="170">
         <div class="custom-item-wrap">
           <div
             v-for="(item) in slotProps.listItem"
             :key="item.id1"
             class="custom-item"
+            :style="{
+              backgroundColor:colorRgb(item.color),
+              boxShadow:`0 0 5px ${colorRgb(item.color)}`,
+            }"
           >
-            <div class="base-info center">
+            <div class="base-info">
               <p
                 class="name center"
                 :style="{
@@ -29,9 +33,11 @@
               >
                 {{ item.china_name }}
               </p>
+              <p class="age center">{{ item.age }}</p>
             </div>
             <div class="card-content">
-              <p>{{ item.color }}</p>
+              <p>登记日期：{{ item.date }}</p>
+              <p>所属省份：{{ item.province }}</p>
             </div>
           </div>
         </div>
@@ -59,12 +65,14 @@ const mockData = () => {
     date: Random.date(),
     color: Random.color(),
     color2: Random.color(),
+    province: Random.province(),
     // image: Random.image('200x100', '#31b5c3', '#FFF', 'png', china_first),
     // 全局自增ID
     id1: Random.increment()
   }
 }
 import ScrollView from '@/components/scroll-view'
+import { colorRgb } from '@/utils/tool'
 export default {
   components: {
     ScrollView
@@ -72,7 +80,7 @@ export default {
   data() {
     const listData = []
     for (let i = 0; i < 400; i++) {
-      listData.push([mockData(), mockData(), mockData()])
+      listData.push([mockData(), mockData(), mockData(), mockData()])
     }
     return {
       listData
@@ -81,6 +89,11 @@ export default {
   methods: {
     getListItem(listItem) {
       return listItem.value
+    },
+    colorRgb(color) {
+      color = colorRgb(color)
+      color = color.replace(')', ',0.5)')
+      return color
     }
   }
 }
@@ -92,30 +105,33 @@ export default {
   background-color: #fff;
   height: 550px;
   .list-heading{
-    height: 46px;
-    line-height: 46px;
+    padding-bottom: 12px;
     text-indent: 1em;
     border-bottom: 1px dashed $main-border-color;
   }
   .custom-item-wrap{
     padding: 10px;
-    height: 250px;
+    height: 170px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .custom-item{
     width: 32%;
+    width: 240px;
     height: 100%;
     border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 0 0 8px rgba($color:#000, $alpha: 0.12);
-    padding: 12px 8px;
+    // background-color: #4c3aaa;
+    // box-shadow: 0 0 8px rgba($color:#4c3aaa, $alpha: 0.28);
+    // border: 1px solid $main-border-color;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     .base-info{
-      min-width: 70px;
-      width: 35%;
-      border-right: 1px dashed $main-border-color ;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      // border-bottom: 1px dashed $main-border-color ;
     }
     .name{
       height: 50px;
@@ -124,13 +140,24 @@ export default {
       color: #fff;
       transition: transform 1s ease-in-out;
       cursor: pointer;
+      // font-size: 18px;
     }
     .name:hover{
       transform: rotateZ(1440deg) scale(1.3,1.3);
     }
+    .age{
+      font-size: 28px;
+      color: #fff;
+    }
     .card-content{
       flex: 1;
       padding-left: 8px;
+      color: $main-color-text;
+      display: flex;
+      flex-direction: column;
+      &>p{
+        margin-top: 12px;
+      }
     }
   }
 }

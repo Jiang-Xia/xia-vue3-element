@@ -95,7 +95,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .dashboard-container {
-  // padding: 1rem;
+  background-color: transparent ;
   height: 100%;
   .section-container{
     // background-image: linear-gradient(to right, #c2d0e2 0%, #c3cfe2 100%);

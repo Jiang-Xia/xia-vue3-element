@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-08 15:10:34
+ * @LastEditTime: 2021-07-14 16:23:59
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\demo\index.vue
 -->
@@ -65,6 +65,8 @@ export default {
 <style scoped lang="scss">
 .demo-container{
   padding: 1rem;
+  background-color: #fff;
+  border-radius: $border-radius;
   .cusrom-directive{
     padding: 50px;
   }

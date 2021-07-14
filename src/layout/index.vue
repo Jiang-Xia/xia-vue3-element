@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-01 20:03:04
- * @LastEditTime: 2021-07-07 10:16:34
+ * @LastEditTime: 2021-07-14 16:38:37
  * @Description:
  * @FilePath: \xia-vue3-element\src\layout\index.vue
 -->
@@ -268,8 +268,6 @@ export default {
 }
 </script>
 <style lang="scss">
-$menu-gradient-bgc:linear-gradient(to top, #30cfd0 0%, #330867 100%);
-$menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
 .xia-submenu__popper{
   background-image: $menu-gradient-bgc;
   .el-menu-item{
@@ -297,12 +295,6 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
   .el-main{
     // padding: 0;
     padding: 12px;
-  }
-  .xia-app__content{
-    height: 100%;
-    background-color: $main-white;
-    // 后代元素有背景色的话会遮住圆角
-    border-radius: $border-radius;
   }
   .xia-scrollbar{
     height: calc(100% - 50px);
@@ -446,5 +438,18 @@ $menu-gradient-active:linear-gradient(90deg, #30cfd0 0%, #009efd 100%);
     margin-left:6px;
   }
   /* 菜单栏 结束 */
+}
+.xia-app__content{
+  height: 100%;
+  // background-color: $main-white;
+  // 后代元素有背景色的话会遮住圆角
+  border-radius: $border-radius;
+  // 设置了auto会影响滚动条出现的容器位置
+  // overflow: auto;
+  &>div{
+    min-height: 80%;
+    background-color: #fff;
+    border-radius: $border-radius;
+  }
 }
 </style>

@@ -58,6 +58,7 @@ export default {
 <style scoped lang="scss">
 .navs-container{
   padding: 1rem .5rem;
+  border-radius: $border-radius;
   .xia-logo{
     height: 150px;
     width: 200px;

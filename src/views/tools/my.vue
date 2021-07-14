@@ -1,6 +1,6 @@
 <!--
  * @Author: 江夏
- * @LastEditors: 江夏
+ * @LastEditors: 酱
 -->
 <template>
   <div class="my-upload-container">
@@ -73,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .my-upload-container{
   background-color: #fff;
-  height: 100%;
+  border-radius: $border-radius;
   padding-top: 3rem;
   .main-content{
     box-shadow: $main-box-shadow;

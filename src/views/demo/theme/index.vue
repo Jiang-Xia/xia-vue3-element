@@ -109,7 +109,8 @@ export default {
 <style lang="scss" scoped>
 .theme-container{
   height: 100%;
-  // background-color: #fff;
+  background-color: #fff;
+  border-radius: $border-radius;
   padding: 8px;
   .drawer-container {
     float: right;
