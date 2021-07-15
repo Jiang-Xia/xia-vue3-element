@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-14 16:47:48
+ * @LastEditTime: 2021-07-15 10:13:56
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\component\custom\index.vue
 -->
@@ -16,14 +16,26 @@
       </template>
       <LongList />
     </el-card>
+
+    <el-card class="mg-b-10">
+      <template #header>
+        <div class="card-header">
+          验证码随机生成
+        </div>
+      </template>
+      <AuthCode />
+    </el-card>
   </div>
 </template>
 
 <script>
 import LongList from './components/long-list'
+import AuthCode from './components/auth-code.vue'
+
 export default {
   components: {
-    LongList
+    LongList,
+    AuthCode
   },
   setup() {
     return {
@@ -44,7 +56,7 @@ export default {
   background-color: #fff;
   border-radius: $border-radius;
   .el-card{
-    width: 88%;
+    // width: 88%;
   }
 }
 </style>

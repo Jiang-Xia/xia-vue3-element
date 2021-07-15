@@ -2,7 +2,7 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-08 15:09:38
- * @LastEditTime: 2021-07-14 17:44:11
+ * @LastEditTime: 2021-07-15 10:12:27
  * @Description:
  * @FilePath: \xia-vue3-element\src\views\component\custom\components\long-list.vue
 -->
@@ -120,6 +120,7 @@ export default {
     width: 240px;
     height: 100%;
     border-radius: 12px;
+    margin-right: 8px;
     // background-color: #4c3aaa;
     // box-shadow: 0 0 8px rgba($color:#4c3aaa, $alpha: 0.28);
     // border: 1px solid $main-border-color;
