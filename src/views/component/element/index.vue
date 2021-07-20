@@ -2,12 +2,22 @@
  * @Author: 酱
  * @LastEditors: 酱
  * @Date: 2021-07-02 09:38:08
- * @LastEditTime: 2021-07-07 17:38:46
+ * @LastEditTime: 2021-07-16 17:07:38
  * @Description:
- * @FilePath: \xia-vue3-element\src\views\component\index.vue
+ * @FilePath: \xia-vue3-element\src\views\component\element\index.vue
 -->
 <template>
   <div class="component-container">
+
+    <el-card class="mg-b-10">
+      <template #header>
+        <div class="card-header">
+          自定义格式日期控件
+        </div>
+      </template>
+      <CustomDate />
+    </el-card>
+
     <el-card class="mg-b-10">
       <template #header>
         <div class="card-header">
@@ -41,11 +51,13 @@
 import DragSelect from './components/drag-select'
 import CancelRadio from './components/cancel-radio'
 import VirtualList from './components/virtual-list.vue'
+import CustomDate from './components/custom-date'
 export default {
   components: {
     DragSelect,
     CancelRadio,
-    VirtualList
+    VirtualList,
+    CustomDate
   },
   setup() {
     return {
